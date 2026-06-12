@@ -149,7 +149,9 @@ import { FiMinus, FiPlus, FiShoppingBag, FiChevronRight, FiShield, FiTruck, FiRe
 import axios from 'axios';
 import { CartContext } from '../context/CartContext';
 import './ProductDetails.css';
+import API from '../api'; 
 
+const { data } = await API.get('/products');
 const ProductDetails = () => {
   const { id } = useParams();
   const { addToCart } = useContext(CartContext);

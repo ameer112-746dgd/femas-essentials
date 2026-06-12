@@ -19,6 +19,12 @@ const app = express();
 app.use(cors());
 app.use(express.json()); // Allows parsing JSON data from frontend
 
+app.use(cors({
+  origin: ['https://femas-frontend.onrender.com', 'http://localhost:5173'], // Allow both live and local testing
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
+
 // API Routes
 app.use('/api/products', productRoutes); // Handles fetching products
 app.use('/api/orders', orderRoutes);     // Handles Checkout & Order Emails

@@ -5,6 +5,9 @@ import { motion } from 'framer-motion';
 import { FiChevronLeft, FiTruck, FiMapPin, FiUser, FiMail, FiPhone } from 'react-icons/fi';
 import { FaWhatsapp } from 'react-icons/fa';
 import './Checkout.css';
+import API from '../api'; 
+
+const { data } = await API.get('/products');
 
 const nigerianStates = [
   "Abia", "Adamawa", "Akwa Ibom", "Anambra", "Bauchi", "Bayelsa", "Benue", "Borno", 

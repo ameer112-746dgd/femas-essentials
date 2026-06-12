@@ -1,106 +1,12 @@
-// import React, { useState, useEffect } from 'react';
-// import { Link } from 'react-router-dom';
-// import axios from 'axios';
-// import { FiFilter } from 'react-icons/fi';
-// import './Shop.css';
-
-// const Shop = () => {
-//   const [products, setProducts] = useState([]);
-//   const [loading, setLoading] = useState(true);
-//   const [filter, setFilter] = useState('All');
-
-//   // Helper function to convert MongoDB Binary Data to Base64 Image
-//   const arrayBufferToBase64 = (buffer) => {
-//     let binary = '';
-//     const bytes = new Uint8Array(buffer);
-//     const len = bytes.byteLength;
-//     for (let i = 0; i < len; i++) {
-//       binary += String.fromCharCode(bytes[i]);
-//     }
-//     return window.btoa(binary);
-//   };
-
-//   useEffect(() => {
-//     const fetchProducts = async () => {
-//       try {
-//         const { data } = await axios.get('http://localhost:5001/api/products');
-//         setProducts(data);
-//         setLoading(false);
-//       } catch (error) {
-//         console.error("Error fetching products", error);
-//         setLoading(false);
-//       }
-//     };
-//     fetchProducts();
-//   }, []);
-
-//   const filteredProducts = filter === 'All' 
-//     ? products 
-//     : products.filter(p => p.category === filter);
-
-//     const categories = ['All', 'Oil', 'Treatment', 'Luxury Butter'];
-
-//   if (loading) return <div className="container" style={{padding: '100px 0', textAlign: 'center'}}>Loading Collection...</div>;
-
-//   return (
-//     <div className="shop-page">
-//       <div className="shop-header">
-//         <h1>Shop Collection</h1>
-//       </div>
-
-//       <div className="container shop-layout">
-//         <aside className="shop-sidebar">
-//           <div className="filter-header"><FiFilter /> Filter</div>
-//           <ul>
-//             {categories.map(cat => (
-//               <li 
-//                 key={cat} 
-//                 className={filter === cat ? 'active' : ''} 
-//                 onClick={() => setFilter(cat)}
-//               >
-//                 {cat}
-//               </li>
-//             ))}
-//           </ul>
-//         </aside>
-
-//         <div className="shop-grid">
-//           {filteredProducts.map((product) => (
-//             <Link to={`/product/${product._id}`} key={product._id} className="shop-card">
-              
-//               <div className="shop-image">
-//                 {/* --- UPDATED IMAGE SRC FOR BINARY DATA --- */}
-//                 {product.image && product.image.data ? (
-//                   <img 
-//                     src={`data:${product.image.contentType};base64,${arrayBufferToBase64(product.image.data.data)}`} 
-//                     alt={product.name} 
-//                   />
-//                 ) : (
-//                   <div className="image-placeholder">No Image Available</div>
-//                 )}
-//               </div>
-
-//               <div className="shop-info">
-//                 <span className="shop-cat">{product.category}</span>
-//                 <h3>{product.name}</h3>
-//                 <p>₦{product.price.toLocaleString()}</p>
-//               </div>
-//             </Link>
-//           ))}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Shop;
-
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { FiFilter, FiArrowRight, FiShoppingBag } from 'react-icons/fi';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Shop.css';
+import API from '../api'; 
+
+const { data } = await API.get('/products');
 
 const Shop = () => {
   const [products, setProducts] = useState([]);

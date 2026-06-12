@@ -56,7 +56,7 @@ const ProductDetails = () => {
 
   if (!product) return (
     <div className="pdp-error-femas">
-      <h2>Ritual not found</h2>
+      <h2>Products not found</h2>
       <Link to="/shop" className="pdp-add-btn">Return to Collection</Link>
     </div>
   );
@@ -87,7 +87,7 @@ const ProductDetails = () => {
                   src={`data:${product.image.contentType};base64,${arrayBufferToBase64(product.image.data.data)}`} 
                   alt={product.name} 
                 />
-              ) : <div className="placeholder">Ritual Image Coming Soon</div>}
+              ) : <div className="placeholder">Products Image Coming Soon</div>}
               <div className="arch-accent-border"></div>
               <div className="pdp-badge-glass">{product.category}</div>
             </div>
@@ -134,7 +134,6 @@ const ProductDetails = () => {
 
             <div className="pdp-benefits-row">
               <div className="benefit-item"><FiTruck /> <span>Express Delivery</span></div>
-              <div className="benefit-item"><FiShield /> <span>Organic Pure</span></div>
               <div className="benefit-item"><FiRefreshCw /> <span>Eco-Friendly</span></div>
             </div>
           </motion.div>

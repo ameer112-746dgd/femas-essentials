@@ -84,7 +84,7 @@ const Checkout = () => {
         <Link to="/cart" className="back-link"><FiChevronLeft /> Back to Cart</Link>
         
         <header className="checkout-header">
-          <h1>Finalize <span className="italic-gold">Ritual</span></h1>
+          <h1>Complete <span className="italic-gold">Your check out</span></h1>
           <p>Secure your essentials via WhatsApp for direct delivery.</p>
         </header>
 

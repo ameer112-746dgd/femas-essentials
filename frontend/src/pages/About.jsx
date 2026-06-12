@@ -184,7 +184,7 @@ const About = () => {
             transition={{ delay: 0.4 }}
           >
            This is more than skincare, it's a celebration of balance 
-           born from the union of feminine and masculine energy , femas represent the harmony between strength and softness , simplicity and sophistication, nature and innovation
+           born from the union of feminine and masculine energy, femas represent the harmony between strength and softness, simplicity and sophistication, nature and innovation
           </motion.p>
         </div>
       </section>

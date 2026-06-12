@@ -1,15 +1,15 @@
 :root {
-  /* Femas Color Palette */
+  /* Femas Palette */
   --bg-white: #ffffff;
-  --femas-brown: #6F4E37;      /* Primary Brown */
-  --femas-brown-dark: #4A3425; /* Deep Brown */
-  --femas-nude: #FDF5F2;       /* Soft Nude/Beige */
-  --femas-nude-dark: #EAD7D1;  /* Nude border/accent */
-  --text-main: #2D2424;        /* Deep Brown-Black */
-  --text-muted: #8E8071;       /* Warm Muted Brown */
+  --femas-brown: #6F4E37;
+  --femas-brown-dark: #4A3425;
+  --femas-nude: #FDF5F2;
+  --femas-nude-dark: #EAD7D1;
+  --text-main: #2D2424;
+  --text-muted: #8E8071;
 }
 
-.pdp-dark-wrapper {
+.pdp-femas-wrapper {
   background-color: var(--bg-white);
   color: var(--text-main);
   min-height: 100vh;
@@ -18,10 +18,10 @@
   overflow-x: hidden;
 }
 
-/* Soft Nude Glow at the top */
+/* Luxury Soft Glow */
 .pdp-glow {
   position: absolute;
-  top: 0; left: 0; width: 100%; height: 60vw;
+  top: 0; left: 0; width: 100%; height: 50vh;
   background: radial-gradient(circle at top left, rgba(234, 215, 209, 0.4) 0%, transparent 70%);
   z-index: 0;
 }
@@ -32,24 +32,23 @@
   padding: 0 20px;
 }
 
-.pdp-content { position: relative; z-index: 1; padding-top: 120px; }
+.pdp-content { position: relative; z-index: 1; padding-top: 100px; }
 
-/* Breadcrumbs - Muted Brown */
-.pdp-dark-breadcrumbs {
+/* Breadcrumbs */
+.pdp-femas-breadcrumbs {
   display: flex; align-items: center; gap: 10px;
   font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px;
   color: var(--text-muted); margin-bottom: 40px;
 }
-.pdp-dark-breadcrumbs a { color: inherit; text-decoration: none; transition: 0.3s; }
-.pdp-dark-breadcrumbs a:hover { color: var(--femas-brown); }
-.gold-text { color: var(--femas-brown); font-weight: 700; }
+.pdp-femas-breadcrumbs a { color: inherit; text-decoration: none; }
+.pdp-femas-breadcrumbs .current-page { color: var(--femas-brown); font-weight: 800; }
 
 /* Layout Grid */
-.product-layout-dark {
-  display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 80px; align-items: start;
+.product-layout-femas {
+  display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: start;
 }
 
-/* Gallery Side - Luxury Arch */
+/* Gallery Side */
 .pdp-gallery-side { position: sticky; top: 110px; width: 100%; }
 
 .pdp-arch-frame {
@@ -60,7 +59,6 @@
 }
 .pdp-arch-frame img { width: 100%; height: 100%; object-fit: cover; }
 
-/* The accent border is now a delicate nude line */
 .arch-accent-border {
   position: absolute; top: 15px; left: 15px; right: -15px; bottom: -15px;
   border: 1px solid var(--femas-nude-dark); border-radius: 250px 250px 20px 20px;
@@ -70,114 +68,78 @@
 
 .pdp-badge-glass {
   position: absolute; top: 30px; right: 30px;
-  background: var(--bg-white); backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px);
   border: 1px solid var(--femas-nude-dark); color: var(--femas-brown);
   padding: 8px 18px; font-size: 0.6rem; font-weight: 800; text-transform: uppercase;
   border-radius: 4px;
 }
 
 /* Info Side Typography */
-.pdp-label { 
-  color: var(--femas-brown); 
-  text-transform: uppercase; 
-  letter-spacing: 4px; 
-  font-size: 0.7rem; 
-  font-weight: 800; 
-  display: block; 
-  margin-bottom: 15px; 
-}
+.pdp-label { color: var(--femas-brown); text-transform: uppercase; letter-spacing: 4px; font-size: 0.7rem; font-weight: 800; display: block; margin-bottom: 15px; }
+.pdp-main-title { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; margin-bottom: 15px; letter-spacing: -1.5px; line-height: 1.1; color: var(--text-main); }
+.pdp-price { font-size: 1.8rem; color: var(--femas-brown); font-weight: 300; font-family: serif; font-style: italic; }
 
-.pdp-main-title { 
-  font-size: clamp(2.2rem, 5vw, 3.8rem); 
-  font-weight: 800; 
-  margin-bottom: 15px; 
-  letter-spacing: -1.5px; 
-  line-height: 1.1; 
-  color: var(--text-main);
-}
+.pdp-description { color: var(--text-muted); line-height: 1.8; font-size: 1.05rem; margin: 30px 0; word-break: break-word; }
 
-.pdp-price { 
-  font-size: 1.8rem; 
-  color: var(--femas-brown); 
-  font-weight: 300; 
-  font-family: serif;
-  font-style: italic;
-}
-
-.pdp-description { 
-  color: var(--text-muted); 
-  line-height: 1.8; 
-  font-size: 1.05rem; 
-  margin: 30px 0; 
-}
-
-/* Interaction Box */
+/* Interaction Section */
 .pdp-interaction-card { display: flex; gap: 15px; margin-bottom: 40px; }
 
-.qty-selector-dark {
+.qty-selector-femas {
   display: flex; align-items: center; background: var(--femas-nude);
   border: 1px solid var(--femas-nude-dark); border-radius: 50px; padding: 5px 15px;
 }
-.qty-btn { 
-  background: none; border: none; color: var(--femas-brown) !important; 
-  cursor: pointer; padding: 10px; font-size: 1.2rem; display: flex; align-items: center; 
-}
+.qty-btn { background: none; border: none; color: var(--femas-brown) !important; cursor: pointer; padding: 10px; font-size: 1.2rem; display: flex; align-items: center; }
 .qty-number { width: 35px; text-align: center; font-weight: 800; color: var(--text-main); }
 
-/* Add to Cart - Solid Brown Pill */
 .pdp-add-btn {
-  flex: 1; background: var(--femas-brown); color: var(--bg-white) !important; border: none; border-radius: 50px;
+  flex: 1; background: var(--femas-brown); color: #fff !important; border: none; border-radius: 50px;
   font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 0.85rem;
-  cursor: pointer; transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  cursor: pointer; transition: 0.4s;
 }
 .btn-inner { display: flex; align-items: center; justify-content: center; gap: 10px; }
-.pdp-add-btn:hover { 
-  background: var(--femas-brown-dark); 
-  transform: translateY(-3px); 
-  box-shadow: 0 10px 25px rgba(111, 78, 55, 0.2);
-}
+.pdp-add-btn:hover { background: var(--femas-brown-dark); transform: translateY(-3px); }
 .pdp-add-btn.success { background: #27ae60; color: #fff !important; }
 
-/* Benefits - Brown Icons */
+/* Trust signals */
 .pdp-benefits-row { display: flex; gap: 20px; padding-bottom: 30px; border-bottom: 1px solid var(--femas-nude-dark); }
 .benefit-item { display: flex; align-items: center; gap: 8px; font-size: 0.65rem; text-transform: uppercase; font-weight: 700; color: var(--text-muted); }
 .benefit-item svg { color: var(--femas-brown); font-size: 1.1rem; }
 
-/* Accordions - Clean Editorial Lines */
-.pdp-accordion { border-bottom: 1px solid var(--femas-nude-dark); }
-.acc-trigger {
-  width: 100%; display: flex; justify-content: space-between; align-items: center;
-  background: none; border: none; color: var(--text-main); padding: 25px 0;
-  text-transform: uppercase; letter-spacing: 2px; font-weight: 700; font-size: 0.7rem; cursor: pointer;
-  transition: 0.3s;
-}
-.acc-trigger:hover { color: var(--femas-brown); }
-.accordion-content p { color: var(--text-muted); line-height: 1.8; font-size: 0.95rem; padding-bottom: 25px; }
-
 /* Loader */
-.pdp-dark-loader { height: 80vh; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--femas-brown); }
-.loader-ring { width: 40px; height: 40px; border: 2px solid var(--femas-nude); border-top-color: var(--femas-brown); border-radius: 50%; margin-bottom: 20px; }
+.pdp-femas-loader { height: 80vh; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--femas-brown); }
+.loader-ring { width: 40px; height: 40px; border: 3px solid var(--femas-nude); border-top-color: var(--femas-brown); border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 20px; }
+@keyframes spin { to { transform: rotate(360deg); } }
 
 /* =============================================
-   MOBILE FIXES
+   MOBILE RESPONSIVENESS
    ============================================= */
 
 @media (max-width: 1024px) {
-  .product-layout-dark { grid-template-columns: 1fr; gap: 40px; }
-  .pdp-gallery-side { 
-    position: relative; 
-    top: 0; 
-    width: 85%; 
-    margin: 0 auto; 
-  }
+  .product-layout-femas { grid-template-columns: 1fr; gap: 40px; }
+  .pdp-gallery-side { position: relative; top: 0; width: 85%; margin: 0 auto; }
 }
 
 @media (max-width: 768px) {
-  .pdp-content { padding-top: 100px; }
-  .pdp-main-title { font-size: 2rem; }
-  .pdp-interaction-card { flex-direction: column; gap: 15px; }
-  .qty-selector-dark { justify-content: space-between; width: 100%; padding: 10px 20px; }
-  .pdp-add-btn { padding: 20px; font-size: 0.8rem; }
+  .pdp-content { padding-top: 80px; }
+  .pdp-main-title { font-size: 2.2rem; }
+  
+  /* STACK INTERACTION BUTTONS */
+  .pdp-interaction-card { 
+    flex-direction: column; 
+    gap: 15px; 
+  }
+  
+  .qty-selector-femas { 
+    justify-content: space-between; 
+    width: 100%; 
+    padding: 10px 20px; 
+  }
+  
+  .pdp-add-btn { 
+    padding: 20px; 
+    width: 100%; 
+    font-size: 0.9rem;
+  }
   
   .pdp-benefits-row {
     display: grid;
@@ -189,4 +151,6 @@
 @media (max-width: 480px) {
   .pdp-main-title { font-size: 1.8rem; }
   .pdp-gallery-side { width: 90%; }
+  .arch-accent-border { right: -10px; bottom: -10px; } /* Tighter border on small phones */
+  .pdp-benefits-row { grid-template-columns: 1fr; }
 }

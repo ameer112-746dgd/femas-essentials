@@ -1,0 +1,156 @@
+:root {
+  --color-primary: #1a1a1a;
+  --color-accent: #d4af37;
+  --color-text-muted: #666666;
+  --color-bg-soft: #fcfaf7; /* Subtle warm tint */
+}
+
+.testimonials-section {
+  background-color: var(--color-bg-soft);
+  padding: 120px 20px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.testimonials-header {
+  margin-bottom: 60px;
+}
+
+.testimonials-header .eyebrow {
+  display: block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: var(--color-accent);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.text-gold { color: var(--color-accent); }
+
+.review-card {
+  max-width: 850px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 60px 40px;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.03);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Large Decorative Quote */
+.quote-icon {
+  position: absolute;
+  top: -10px;
+  font-size: 8rem;
+  color: var(--color-accent);
+  opacity: 0.15;
+  font-family: serif;
+  line-height: 1;
+}
+
+.stars {
+  color: var(--color-accent);
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+  display: flex;
+  gap: 4px;
+}
+
+.review-text {
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  color: var(--color-primary);
+  margin-bottom: 30px;
+  line-height: 1.6;
+  font-weight: 500;
+  max-width: 700px;
+}
+
+.product-tag {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  background: #f8f8f8;
+  padding: 6px 16px;
+  border-radius: 50px;
+  margin-bottom: 40px;
+}
+
+.review-author {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.author-info h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.author-info .location {
+  font-size: 0.85rem;
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.verified-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #27ae60; /* Green for trust */
+  font-weight: 700;
+}
+
+/* Navigation Dots */
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 50px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background-color: #ddd;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background-color: var(--color-accent);
+  width: 24px; /* Pill shape for active dot */
+  border-radius: 10px;
+}
+
+/* Smooth Entrance Animation */
+.fade-in {
+  animation: elegantFade 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes elegantFade {
+  from { opacity: 0; transform: translateY(20px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (max-width: 768px) {
+  .testimonials-section { padding: 80px 20px; }
+  .review-card { padding: 40px 24px; }
+  .review-text { font-size: 1.1rem; }
+  .quote-icon { font-size: 5rem; top: 10px; }
+}

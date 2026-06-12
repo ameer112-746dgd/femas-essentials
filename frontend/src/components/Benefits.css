@@ -1,0 +1,178 @@
+:root {
+  --midnight: #0a0a0a;
+  --gold: #d4af37;
+  --white: #ffffff;
+  --glass: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --text-muted: #888888;
+}
+
+.benefits-dark-section {
+  padding: 120px 0;
+  background-color: var(--midnight);
+  position: relative;
+  overflow: hidden;
+  color: var(--white);
+  border-top: 1px solid var(--glass-border);
+}
+
+/* Background Glow Effect */
+.benefits-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Section Header */
+.benefits-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.benefits-header .eyebrow {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.benefits-header h3 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.italic-gold {
+  color: var(--gold);
+  font-style: italic;
+  font-family: serif;
+  font-weight: 300;
+}
+
+.header-line {
+  width: 50px;
+  height: 2px;
+  background: var(--gold);
+  margin: 25px auto 0;
+}
+
+/* Grid Layout */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* Glassmorphism Cards */
+.benefit-glass-card {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(10px);
+  padding: 60px 40px;
+  border-radius: 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.4s ease;
+}
+
+.benefit-glass-card:hover {
+  border-color: rgba(212, 175, 55, 0.3);
+}
+
+/* Icon Styling */
+.benefit-icon-box {
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--glass-border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 30px;
+  font-size: 2rem;
+  color: var(--gold);
+  transition: all 0.4s ease;
+}
+
+.benefit-glass-card:hover .benefit-icon-box {
+  background: var(--gold);
+  color: var(--midnight);
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.3);
+}
+
+/* Typography */
+.benefit-text h4 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 18px;
+  letter-spacing: -0.5px;
+}
+
+.benefit-text p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+/* Animated Shine Effect */
+.card-shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.05),
+    transparent
+  );
+  transform: skewX(-25deg);
+  transition: 0.75s;
+}
+
+.benefit-glass-card:hover .card-shine {
+  left: 150%;
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 992px) {
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .benefit-glass-card {
+    padding: 40px 30px;
+  }
+
+  .benefits-dark-section {
+    padding: 80px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .benefits-header h3 {
+    font-size: 1.8rem;
+  }
+}

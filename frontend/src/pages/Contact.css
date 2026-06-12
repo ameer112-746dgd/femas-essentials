@@ -1,0 +1,412 @@
+:root {
+  --dark: #0a0a0a;
+  --gold: #d4af37;
+  --white: #ffffff;
+  --glass: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --font-display: 'Inter', system-ui, sans-serif;
+}
+
+.contact-wrapper {
+  background-color: var(--dark);
+  color: var(--white);
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  font-family: var(--font-display);
+}
+
+/* Background Blurs */
+.bg-blur-dot {
+  position: absolute;
+  width: 40vw;
+  height: 40vw;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: 0;
+  opacity: 0.15;
+}
+.dot-1 { top: -10%; left: -10%; background: var(--gold); }
+.dot-2 { bottom: -10%; right: -10%; background: #4a4a4a; }
+
+.contact-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+/* LEFT SIDE */
+.contact-visual-side {
+  padding: 100px 10%;
+  display: flex;
+  align-items: center;
+}
+
+.sticky-content { position: sticky; top: 100px; }
+
+.tag {
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.display-text {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1.1;
+  font-weight: 800;
+  margin-bottom: 50px;
+  letter-spacing: -2px;
+}
+
+.italic-gold {
+  color: var(--gold);
+  font-style: italic;
+  font-weight: 300;
+}
+
+.contact-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.method-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.m-icon { color: var(--gold); font-size: 1.5rem; }
+.m-text span { font-size: 0.7rem; text-transform: uppercase; color: #666; font-weight: 700; }
+.m-text p { font-size: 1.1rem; margin: 0; font-weight: 500; }
+
+.social-tray { display: flex; gap: 25px; }
+.social-tray a { color: var(--white); font-size: 1.5rem; transition: 0.3s; }
+.social-tray a:hover { color: var(--gold); transform: translateY(-3px); }
+
+/* RIGHT SIDE (FORM) */
+.contact-form-side {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 10%;
+  background: rgba(255,255,255,0.02);
+}
+
+.form-glass-container {
+  width: 100%;
+  max-width: 500px;
+  padding: 60px;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+}
+
+/* Floating Label Inputs */
+.input-block {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.input-block input, 
+.input-block textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--glass-border);
+  padding: 10px 0;
+  color: var(--white);
+  font-size: 1.1rem;
+  outline: none;
+  transition: 0.3s;
+}
+
+.input-block label {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  color: #666;
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.input-block input:focus ~ label,
+.input-block input:not(:placeholder-shown) ~ label,
+.input-block textarea:focus ~ label,
+.input-block textarea:not(:placeholder-shown) ~ label {
+  top: -20px;
+  font-size: 0.75rem;
+  color: var(--gold);
+}
+
+.input-block input:focus, 
+.input-block textarea:focus {
+  border-color: var(--gold);
+}
+
+/* Magnetic Button */
+.magnetic-btn {
+  width: 100%;
+  padding: 20px;
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: 0.4s;
+}
+
+.btn-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-fill {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gold);
+  transition: 0.4s cubic-bezier(0.6, 0.01, -0.05, 0.9);
+  z-index: 1;
+}
+
+.magnetic-btn:hover .btn-fill { top: 0; }
+.magnetic-btn:hover { color: var(--dark); }
+
+/* =============================================
+   MOBILE RESPONSIVENESS
+   ============================================= */
+
+@media (max-width: 1024px) {
+  .contact-main { grid-template-columns: 1fr; }
+  .contact-visual-side { padding: 80px 5%; }
+  .display-text { margin-bottom: 30px; }
+  .contact-form-side { padding: 40px 5% 100px; }
+}
+
+@media (max-width: 768px) {
+  .contact-visual-side {
+    text-align: center;
+    padding-top: 100px;
+  }
+  .sticky-content { position: relative; top: 0; }
+  .method-row { justify-content: center; }
+  .social-tray { justify-content: center; }
+  
+  .form-glass-container {
+    padding: 40px 25px;
+    border-radius: 0; /* Full width feel on mobile */
+    background: transparent;
+    border: none;
+    backdrop-filter: none;
+  }
+
+  .display-text { font-size: 2.8rem; }
+}
+
+@media (max-width: 480px) {
+  .display-text { font-size: 2.2rem; }
+  .input-block { margin-bottom: 30px; }
+}
+/* =============================================
+   NOTIFICATION TOAST STYLES
+   ============================================= */
+
+.notification-toast {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  min-width: 320px;
+  background: rgba(15, 15, 15, 0.85); /* Dark Glass */
+  backdrop-filter: blur(15px);
+  border: 1px solid var(--glass-border);
+  padding: 18px 25px;
+  border-radius: 15px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+.toast-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.toast-icon {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+/* Success State */
+.notification-toast.success {
+  border-left: 4px solid var(--gold);
+}
+.notification-toast.success .toast-icon {
+  color: var(--gold);
+}
+
+/* Error State */
+.notification-toast.error {
+  border-left: 4px solid #ff4d4d;
+}
+.notification-toast.error .toast-icon {
+  color: #ff4d4d;
+}
+
+.notification-toast p {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #eee;
+  flex-grow: 1;
+}
+
+.close-toast {
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  transition: 0.3s;
+}
+
+.close-toast:hover {
+  color: #fff;
+}
+
+/* Progress Bar at the bottom */
+.toast-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: var(--gold);
+  opacity: 0.6;
+}
+
+.notification-toast.error .toast-progress {
+  background: #ff4d4d;
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+  .notification-toast {
+    width: 90%;
+    min-width: auto;
+  }
+}
+/* ... Keep existing CSS variables and background blurs ... */
+
+/* Context Blocks (Expertise & Hours) */
+.contact-context-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.context-block {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+.c-icon {
+  color: var(--gold);
+  font-size: 1.2rem;
+  background: var(--glass);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.c-text h4 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+  color: var(--white);
+}
+
+.c-text p {
+  font-size: 0.9rem;
+  color: #888;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Social Tray Enhancement */
+.social-tray p {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #555;
+  margin-bottom: 15px;
+  font-weight: 800;
+}
+
+.social-btns {
+  display: flex;
+  gap: 20px;
+}
+
+/* Form Header */
+.form-header {
+  margin-bottom: 40px;
+}
+
+.form-header h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.form-header p {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* ... Keep existing responsive queries ... */
+
+@media (max-width: 768px) {
+  .contact-context-blocks {
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    align-items: center;
+    text-align: center;
+  }
+  .context-block {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+}

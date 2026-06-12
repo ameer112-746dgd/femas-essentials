@@ -1,0 +1,88 @@
+/* Previous Dark Root variables remain the same */
+:root {
+  --midnight: #0a0a0a;
+  --gold: #d4af37;
+  --white: #ffffff;
+  --glass: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+.about-dark-wrapper {
+  background-color: var(--midnight);
+  color: var(--white);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Background Blurs - Keep as is */
+.glow-dot { position: absolute; border-radius: 50%; filter: blur(140px); opacity: 0.12; z-index: 0; }
+.dot-a { width: 50vw; height: 50vw; top: -10%; left: -10%; background: var(--gold); }
+.dot-b { width: 40vw; height: 40vw; bottom: 10%; right: -5%; background: #4a4a4a; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+
+/* Hero */
+.about-hero-dark { height: 85vh; display: flex; align-items: center; text-align: center; }
+.display-large { font-size: clamp(2.5rem, 8vw, 5rem); line-height: 1.1; font-weight: 800; letter-spacing: -2px; margin-bottom: 25px; }
+.italic-gold { color: var(--gold); font-style: italic; font-weight: 300; font-family: serif; }
+.tag-gold { color: var(--gold); text-transform: uppercase; letter-spacing: 5px; font-size: 0.75rem; font-weight: 700; margin-bottom: 20px; display: block; }
+.hero-subtitle { max-width: 700px; margin: 0 auto; font-size: 1.2rem; color: #888; line-height: 1.6; }
+
+/* Story Section */
+.story-split { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; padding: 120px 0; }
+.image-frame { position: relative; aspect-ratio: 4/5; }
+.image-frame img { width: 100%; height: 100%; object-fit: cover; border-radius: 4px; z-index: 2; position: relative; }
+.frame-border { position: absolute; top: 20px; left: 20px; right: -20px; bottom: -20px; border: 1px solid var(--gold); z-index: 1; }
+
+.stats-row { display: flex; gap: 40px; margin-top: 40px; border-top: 1px solid var(--glass-border); padding-top: 30px; }
+.stat-item strong { display: block; font-size: 2rem; color: var(--gold); }
+.stat-item span { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #666; }
+
+/* Botanical Grid (New) */
+.botanical-section { padding: 100px 0; }
+.section-head-left { margin-bottom: 50px; }
+.botanical-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.botanical-card { background: var(--glass); padding: 30px; border: 1px solid var(--glass-border); border-radius: 12px; transition: 0.3s; }
+.botanical-card:hover { border-color: var(--gold); background: rgba(212, 175, 55, 0.05); }
+.b-icon { color: var(--gold); font-size: 1.5rem; margin-bottom: 15px; }
+.botanical-card h4 { margin-bottom: 8px; font-weight: 600; }
+.botanical-card p { font-size: 0.85rem; color: #777; }
+
+/* Ritual Section (New) */
+.ritual-section { padding: 100px 0; }
+.ritual-glass { 
+  background: var(--glass); border: 1px solid var(--glass-border); 
+  backdrop-filter: blur(10px); display: grid; grid-template-columns: 1fr 1fr; 
+  border-radius: 24px; overflow: hidden; 
+}
+.ritual-text { padding: 60px; }
+.ritual-visual img { width: 100%; height: 100%; object-fit: cover; }
+.ritual-steps { margin-top: 40px; display: flex; flex-direction: column; gap: 30px; }
+.step { display: flex; gap: 20px; }
+.step-icon { color: var(--gold); font-size: 1.5rem; flex-shrink: 0; }
+.step h5 { color: var(--gold); margin-bottom: 5px; font-size: 1.1rem; }
+.step p { font-size: 0.9rem; color: #888; }
+
+/* Promise Section */
+.promise-section { padding: 120px 0; border-top: 1px solid var(--glass-border); }
+.promise-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 60px; }
+.promise-item h4 { margin: 15px 0 10px; font-size: 1.2rem; }
+.promise-item p { color: #777; line-height: 1.6; font-size: 0.95rem; }
+.p-icon { color: var(--gold); font-size: 1.5rem; }
+
+/* CTA Header Override */
+.cta-title { font-size: clamp(2rem, 5vw, 4rem); font-weight: 300; margin-bottom: 50px; }
+.gold-cta-btn { display: inline-flex; align-items: center; gap: 12px; background: var(--gold); color: #000; padding: 20px 45px; text-decoration: none; font-weight: 700; border-radius: 50px; transition: 0.3s; }
+.gold-cta-btn:hover { background: #fff; transform: translateY(-5px); }
+
+/* Label style used throughout */
+.label { color: var(--gold); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 3px; font-weight: 800; display: block; margin-bottom: 10px; }
+
+/* Mobile */
+@media (max-width: 992px) {
+  .story-split, .ritual-glass, .promise-grid { grid-template-columns: 1fr; }
+  .botanical-grid { grid-template-columns: repeat(2, 1fr); }
+  .ritual-visual { height: 300px; order: -1; }
+  .ritual-text { padding: 40px 24px; }
+  .display-large { font-size: 3.2rem; }
+}

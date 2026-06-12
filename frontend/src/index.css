@@ -1,0 +1,89 @@
+/* Google Fonts - Importing a Sans Serif (Modern) and Serif (Elegant) as per PDF */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap');
+
+:root {
+  /* Color Palette from PDF */
+  --color-black: #0a0a0a;
+  --color-white: #ffffff;
+  --color-gold: #d4af37;       /* Classic Luxury Gold */
+  --color-gold-light: #f3e5ab; /* Soft gold for backgrounds */
+  --color-grey: #f4f4f4;
+  
+  /* Fonts */
+  --font-sans: 'Inter', sans-serif;           /* For body text, minimal */
+  --font-serif: 'Playfair Display', serif;    /* For headings, elegant */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-white);
+  color: var(--color-black);
+  line-height: 1.6;
+  overflow-x: hidden; /* Prevents horizontal scroll on mobile */
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: 0.3s ease;
+}
+
+/* Utility Classes for common Luxury styles */
+.btn-primary {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  padding: 12px 24px;
+  border: 1px solid var(--color-black);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-gold);
+  border-color: var(--color-gold);
+  color: var(--color-black);
+}
+
+.text-gold {
+  color: var(--color-gold);
+}
+
+/* --- MOBILE RESPONSIVE GLOBAL FIXES --- */
+
+@media (max-width: 768px) {
+  /* 1. Reset Container Width */
+  .container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  /* 2. Prevent Horizontal Scrolling */
+  body, html {
+    overflow-x: hidden;
+  }
+
+  /* 3. Typography Scaling */
+  h1 { font-size: 2.5rem !important; }
+  h2 { font-size: 2rem !important; }
+  p { font-size: 1rem !important; }
+
+  /* 4. Global Image Constraints */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}

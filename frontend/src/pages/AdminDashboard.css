@@ -1,0 +1,135 @@
+:root {
+  --midnight: #080808;
+  --gold: #d4af37;
+  --glass: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --text-dim: #888;
+}
+
+.admin-dark-wrapper {
+  background-color: var(--midnight);
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  font-family: 'Inter', sans-serif;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.bg-glow {
+  position: absolute;
+  top: 0; right: 0; width: 40vw; height: 40vw;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Sidebar Navigation */
+.admin-sidebar {
+  width: 260px;
+  background: rgba(0, 0, 0, 0.3);
+  border-right: 1px solid var(--glass-border);
+  padding: 40px 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+  height: 100vh;
+}
+
+.brand h2 { font-weight: 800; letter-spacing: -1px; font-size: 1.4rem; }
+.brand span { color: var(--gold); font-weight: 300; font-style: italic; }
+
+.logout-pill {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  color: #ff4d4d;
+  padding: 10px 18px;
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  transition: 0.3s;
+  margin-top: 20px;
+}
+.logout-pill:hover { background: #ff4d4d; color: #fff; }
+
+/* Main Area */
+.admin-main { flex: 1; margin-left: 260px; padding: 60px; }
+
+.admin-header h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 40px; }
+.italic-gold { color: var(--gold); font-style: italic; font-weight: 300; font-family: serif; }
+
+.admin-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px; align-items: start; }
+
+.glass-card {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(15px);
+  padding: 40px;
+  border-radius: 20px;
+}
+
+.glass-card h3 { margin-bottom: 30px; display: flex; align-items: center; gap: 10px; color: var(--gold); }
+
+/* Form Styles */
+.admin-form { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+.input-group.full { grid-column: span 2; }
+
+.input-group label {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px;
+  color: var(--text-dim); margin-bottom: 10px; font-weight: 700;
+}
+
+.input-group input, 
+.input-group select, 
+.input-group textarea {
+  width: 100%; background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border);
+  padding: 14px; border-radius: 8px; color: #fff; outline: none; transition: 0.3s;
+}
+
+.input-group input:focus, .input-group select:focus { border-color: var(--gold); background: rgba(0,0,0,0.4); }
+
+.file-input { font-size: 0.8rem; color: var(--text-dim); }
+
+.btn-gold {
+  grid-column: span 2; background: var(--gold); color: #000;
+  padding: 16px; border: none; border-radius: 8px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: 0.3s;
+}
+.btn-gold:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(212,175,55,0.2); }
+
+.btn-cancel { background: transparent; border: 1px solid #444; color: #fff; grid-column: span 2; padding: 12px; border-radius: 8px; cursor: pointer; }
+
+/* Table Styles */
+.table-responsive { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+th { text-align: left; padding: 15px; color: var(--text-dim); text-transform: uppercase; font-size: 0.7rem; border-bottom: 1px solid var(--glass-border); }
+td { padding: 20px 15px; border-bottom: 1px solid rgba(255,255,255,0.02); font-size: 0.9rem; }
+
+.td-product { display: flex; align-items: center; gap: 15px; }
+.td-product img { width: 50px; height: 50px; border-radius: 8px; object-fit: cover; background: #111; }
+
+.badge { background: rgba(212, 175, 55, 0.1); color: var(--gold); padding: 4px 12px; border-radius: 50px; font-size: 0.7rem; font-weight: 700; }
+
+.action-btn { background: none; border: none; font-size: 1.1rem; cursor: pointer; margin-left: 15px; transition: 0.2s; }
+.action-btn.edit { color: var(--text-dim); }
+.action-btn.edit:hover { color: var(--gold); }
+.action-btn.delete { color: #444; }
+.action-btn.delete:hover { color: #ff4d4d; }
+
+.txt-right { text-align: right; }
+
+/* Loader */
+.admin-dark-loader { height: 100vh; background: var(--midnight); display: flex; align-items: center; justify-content: center; }
+.spinner { width: 40px; height: 40px; border: 3px solid var(--glass); border-top-color: var(--gold); border-radius: 50%; animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Mobile */
+@media (max-width: 1100px) {
+  .admin-grid { grid-template-columns: 1fr; }
+  .admin-main { margin-left: 0; padding: 40px 20px; }
+  .admin-sidebar { display: none; } /* On a real dashboard, you'd add a toggle menu here */
+}

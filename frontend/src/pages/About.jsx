@@ -183,8 +183,8 @@ const About = () => {
             animate={{ opacity: 1 }} 
             transition={{ delay: 0.4 }}
           >
-            FEMAS Essentials is more than a brand; it is a commitment to the purity of nature 
-            and the luxury of time. We believe in the power of slow-crafted, botanical science.
+            This is more than skincare, it's a celebration of balance 
+Born from the Union of feminine and masculine energy , femas represent the harmony between strength and softness , simplicity and sophistication, nature and innovation
           </motion.p>
         </div>
       </section>

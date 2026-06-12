@@ -20,7 +20,7 @@ const Benefits = () => {
     {
       id: 3,
       icon: <FiPackage />, // Represents packaging/sustainability
-      title: "Thoughtful Packaging",
+      title: "Intentional Packaging",
       desc: "We are committed to reducing waste through intentional packaging choices and are actively exploring refill options and sustainable solutions. Our goal is to create products that are better for both people and the planet."
     }
   ];

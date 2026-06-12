@@ -101,7 +101,7 @@ const Contact = () => {
                 <FiMail className="m-icon" />
                 <div className="m-text">
                   <span>Write to us</span>
-                  <p>femasessentials35@gmail.com</p>
+                  <p>Hello@femasessentials.com</p>
                 </div>
               </div>
               <div className="method-row">

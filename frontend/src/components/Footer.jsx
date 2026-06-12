@@ -53,8 +53,8 @@ const Footer = () => {
           <div className="footer-col">
             <h4 className="col-title">Contact</h4>
             <div className="contact-details">
-              <a href="mailto:femasessentials35@gmail.com" className="contact-link">
-                <FiMail className="gold-icon" /> femasessentials35@gmail.com
+              <a href="mailto: Hello@femasessentials.com" className="contact-link">
+                <FiMail className="gold-icon" />Hello@femasessentials.com
               </a>
               <p className="contact-link">Lagos, Nigeria</p>
             </div>

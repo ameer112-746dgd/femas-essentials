@@ -218,7 +218,7 @@ const About = () => {
         <section className="story-split reverse">
           <motion.div className="story-content-dark" {...fadeUp}>
             <span className="label">Our Journey</span>
-            <h2>A Milestone of <span className="italic-gold">Care.</span></h2>
+            <h2>BUILT THROUGH  <span className="italic-gold">COMMUNITY.</span></h2>
             <div className="journey-text-block">
               <p>
                 In 2024, FEMAS celebrated an important milestone with its first official launch event a gathering that brought together skincare lovers and the community that helped shape our vision.

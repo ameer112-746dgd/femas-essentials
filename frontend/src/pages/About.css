@@ -1,88 +1,343 @@
-/* Previous Dark Root variables remain the same */
+/* 
+  About.css - Full Femas Boutique Theme 
+  Palette: White, Brown, and Nude
+*/
+
 :root {
-  --midnight: #0a0a0a;
-  --gold: #d4af37;
-  --white: #ffffff;
-  --glass: rgba(255, 255, 255, 0.03);
-  --glass-border: rgba(255, 255, 255, 0.08);
+  /* Femas Color Palette */
+  --bg-white: #ffffff;
+  --femas-brown: #6F4E37;      /* Primary Elegant Brown */
+  --femas-brown-dark: #4A3425; /* Deep Contrast Brown */
+  --femas-nude: #FDF5F2;       /* Soft Nude/Beige */
+  --femas-nude-dark: #EAD7D1;  /* Nude border/accent */
+  --text-main: #2D2424;        /* Deep Brown-Black */
+  --text-muted: #8E8071;       /* Warm Muted Brown */
 }
 
+/* Base Wrapper */
 .about-dark-wrapper {
-  background-color: var(--midnight);
-  color: var(--white);
-  overflow: hidden;
+  background-color: var(--bg-white);
+  color: var(--text-main);
+  overflow-x: hidden; /* Necessary for full-bleed background sections */
   position: relative;
+  width: 100%;
 }
 
-/* Background Blurs - Keep as is */
-.glow-dot { position: absolute; border-radius: 50%; filter: blur(140px); opacity: 0.12; z-index: 0; }
-.dot-a { width: 50vw; height: 50vw; top: -10%; left: -10%; background: var(--gold); }
-.dot-b { width: 40vw; height: 40vw; bottom: 10%; right: -5%; background: #4a4a4a; }
+/* Background Glow Effects */
+.glow-dot { 
+  position: absolute; 
+  border-radius: 50%; 
+  filter: blur(140px); 
+  opacity: 0.4; 
+  z-index: 0; 
+}
+.dot-a { width: 50vw; height: 50vw; top: -10%; left: -10%; background: var(--femas-nude-dark); }
+.dot-b { width: 40vw; height: 40vw; bottom: 10%; right: -5%; background: var(--femas-nude); }
 
-.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+.container { 
+  max-width: 1200px; 
+  margin: 0 auto; 
+  padding: 0 24px; 
+  position: relative; 
+  z-index: 1; 
+}
 
-/* Hero */
-.about-hero-dark { height: 85vh; display: flex; align-items: center; text-align: center; }
-.display-large { font-size: clamp(2.5rem, 8vw, 5rem); line-height: 1.1; font-weight: 800; letter-spacing: -2px; margin-bottom: 25px; }
-.italic-gold { color: var(--gold); font-style: italic; font-weight: 300; font-family: serif; }
-.tag-gold { color: var(--gold); text-transform: uppercase; letter-spacing: 5px; font-size: 0.75rem; font-weight: 700; margin-bottom: 20px; display: block; }
-.hero-subtitle { max-width: 700px; margin: 0 auto; font-size: 1.2rem; color: #888; line-height: 1.6; }
+/* GLOBAL IMAGE HANDLING - Ensures images fit without stretching */
+.femas-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Crops image to fill container area */
+  object-position: center;
+  display: block;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
 
-/* Story Section */
-.story-split { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; padding: 120px 0; }
-.image-frame { position: relative; aspect-ratio: 4/5; }
-.image-frame img { width: 100%; height: 100%; object-fit: cover; border-radius: 4px; z-index: 2; position: relative; }
-.frame-border { position: absolute; top: 20px; left: 20px; right: -20px; bottom: -20px; border: 1px solid var(--gold); z-index: 1; }
+/* --- HERO SECTION --- */
+.about-hero-dark { 
+  height: 75vh; 
+  display: flex; 
+  align-items: center; 
+  text-align: center; 
+}
 
-.stats-row { display: flex; gap: 40px; margin-top: 40px; border-top: 1px solid var(--glass-border); padding-top: 30px; }
-.stat-item strong { display: block; font-size: 2rem; color: var(--gold); }
-.stat-item span { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #666; }
+.about-hero-logo {
+  max-width: 300px; 
+  height: auto;
+  margin-bottom: 40px;
+  display: inline-block;
+}
 
-/* Botanical Grid (New) */
-.botanical-section { padding: 100px 0; }
+.hero-subtitle { 
+  max-width: 750px; 
+  margin: 0 auto; 
+  font-size: 1.2rem; 
+  color: var(--text-muted); 
+  line-height: 1.7; 
+}
+
+/* --- STORY SPLIT (MISSION & JOURNEY) --- */
+.story-split { 
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 100px; 
+  align-items: center; 
+  padding: 100px 0; 
+}
+
+/* Zig-Zag Logic: Swaps text and image for sections with '.reverse' class */
+@media (min-width: 993px) {
+    .story-split.reverse .story-content-dark { order: 1; }
+    .story-split.reverse .story-visual { order: 2; }
+}
+
+.image-frame { 
+  position: relative; 
+  aspect-ratio: 4/5; /* Portrait editorial ratio */
+  width: 100%;
+  border-radius: 4px;
+}
+
+.image-frame:hover .femas-img {
+  transform: scale(1.03);
+}
+
+.frame-border { 
+  position: absolute; 
+  top: 25px; 
+  left: 25px; 
+  right: -25px; 
+  bottom: -25px; 
+  border: 1px solid var(--femas-nude-dark); 
+  z-index: 1; 
+  pointer-events: none;
+}
+
+.story-content-dark h2 {
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  margin-bottom: 35px;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.journey-text-block p {
+  line-height: 1.8;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+}
+
+.highlight-text {
+  font-weight: 700;
+  color: var(--femas-brown);
+}
+
+.stats-row { 
+  display: flex; 
+  gap: 40px; 
+  margin-top: 40px; 
+  border-top: 1px solid var(--femas-nude-dark); 
+  padding-top: 30px; 
+}
+
+.stat-item strong { 
+  display: block; 
+  font-size: 2.2rem; 
+  color: var(--femas-brown); 
+  line-height: 1;
+}
+
+.stat-item span { 
+  font-size: 0.7rem; 
+  text-transform: uppercase; 
+  letter-spacing: 1px; 
+  color: var(--text-muted); 
+}
+
+/* --- BOTANICAL SECTION (Nude background bleed) --- */
+.botanical-section { 
+  padding: 120px 0; 
+  background-color: var(--femas-nude); 
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
 .section-head-left { margin-bottom: 50px; }
-.botanical-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-.botanical-card { background: var(--glass); padding: 30px; border: 1px solid var(--glass-border); border-radius: 12px; transition: 0.3s; }
-.botanical-card:hover { border-color: var(--gold); background: rgba(212, 175, 55, 0.05); }
-.b-icon { color: var(--gold); font-size: 1.5rem; margin-bottom: 15px; }
-.botanical-card h4 { margin-bottom: 8px; font-weight: 600; }
-.botanical-card p { font-size: 0.85rem; color: #777; }
 
-/* Ritual Section (New) */
-.ritual-section { padding: 100px 0; }
-.ritual-glass { 
-  background: var(--glass); border: 1px solid var(--glass-border); 
-  backdrop-filter: blur(10px); display: grid; grid-template-columns: 1fr 1fr; 
-  border-radius: 24px; overflow: hidden; 
+.botanical-grid { 
+  display: grid; 
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 24px; 
 }
-.ritual-text { padding: 60px; }
-.ritual-visual img { width: 100%; height: 100%; object-fit: cover; }
-.ritual-steps { margin-top: 40px; display: flex; flex-direction: column; gap: 30px; }
-.step { display: flex; gap: 20px; }
-.step-icon { color: var(--gold); font-size: 1.5rem; flex-shrink: 0; }
-.step h5 { color: var(--gold); margin-bottom: 5px; font-size: 1.1rem; }
-.step p { font-size: 0.9rem; color: #888; }
 
-/* Promise Section */
-.promise-section { padding: 120px 0; border-top: 1px solid var(--glass-border); }
-.promise-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 60px; }
-.promise-item h4 { margin: 15px 0 10px; font-size: 1.2rem; }
-.promise-item p { color: #777; line-height: 1.6; font-size: 0.95rem; }
-.p-icon { color: var(--gold); font-size: 1.5rem; }
+.botanical-card { 
+  background: var(--bg-white); 
+  padding: 45px 30px; 
+  border: 1px solid var(--femas-nude-dark); 
+  border-radius: 20px; 
+  text-align: center;
+  transition: 0.4s ease;
+}
 
-/* CTA Header Override */
-.cta-title { font-size: clamp(2rem, 5vw, 4rem); font-weight: 300; margin-bottom: 50px; }
-.gold-cta-btn { display: inline-flex; align-items: center; gap: 12px; background: var(--gold); color: #000; padding: 20px 45px; text-decoration: none; font-weight: 700; border-radius: 50px; transition: 0.3s; }
-.gold-cta-btn:hover { background: #fff; transform: translateY(-5px); }
+.botanical-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--femas-brown);
+  box-shadow: 0 15px 35px rgba(111, 78, 55, 0.05);
+}
 
-/* Label style used throughout */
-.label { color: var(--gold); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 3px; font-weight: 800; display: block; margin-bottom: 10px; }
+.b-icon { color: var(--femas-brown); font-size: 2.2rem; margin-bottom: 20px; }
+.botanical-card h4 { margin-bottom: 10px; font-weight: 700; font-size: 1.1rem; }
+.botanical-card p { font-size: 0.85rem; color: var(--text-muted); }
 
-/* Mobile */
+/* --- RITUAL STANDALONE VISUAL --- */
+.ritual-section { padding: 100px 0; }
+
+.ritual-visual-standalone {
+  width: 100%;
+  height: 650px; 
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(111, 78, 55, 0.04);
+}
+
+/* --- PROMISE SECTION --- */
+.promise-section { 
+  padding: 120px 0; 
+  border-top: 1px solid var(--femas-nude-dark); 
+}
+
+.section-head { text-align: center; margin-bottom: 80px; }
+
+.promise-grid { 
+  display: grid; 
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 60px; 
+}
+
+.promise-item { text-align: center; }
+.p-icon { color: var(--femas-brown); font-size: 2rem; margin-bottom: 25px; }
+.promise-item h4 { margin-bottom: 15px; font-size: 1.4rem; font-weight: 700; }
+.promise-item p { color: var(--text-muted); line-height: 1.7; font-size: 1rem; }
+
+/* --- FOOTER CTA --- */
+.about-cta-dark { 
+  padding: 140px 0; 
+  text-align: center;
+  background-color: var(--femas-nude);
+}
+
+.gold-cta-btn { 
+  display: inline-flex; 
+  align-items: center; 
+  gap: 12px; 
+  background: var(--femas-brown); 
+  color: #fff; 
+  padding: 22px 55px; 
+  border-radius: 50px; 
+  text-decoration: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+  transition: 0.4s;
+}
+
+.gold-cta-btn:hover { 
+  background: var(--femas-brown-dark); 
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(111, 78, 55, 0.2);
+}
+
+/* GLOBAL REUSABLE CLASSES */
+.label { 
+  color: var(--femas-brown); 
+  text-transform: uppercase; 
+  font-size: 0.75rem; 
+  letter-spacing: 3px; 
+  font-weight: 800; 
+  display: block; 
+  margin-bottom: 15px; 
+}
+
+.italic-gold { 
+  font-style: italic; 
+  font-family: serif; 
+  font-weight: 400; 
+  color: var(--femas-brown); 
+}
+
+/* =============================================
+   MOBILE RESPONSIVENESS
+   ============================================= */
+
 @media (max-width: 992px) {
-  .story-split, .ritual-glass, .promise-grid { grid-template-columns: 1fr; }
-  .botanical-grid { grid-template-columns: repeat(2, 1fr); }
-  .ritual-visual { height: 300px; order: -1; }
-  .ritual-text { padding: 40px 24px; }
-  .display-large { font-size: 3.2rem; }
+  .story-split { 
+    grid-template-columns: 1fr; 
+    gap: 60px; 
+    text-align: center;
+  }
+  
+  .image-frame { 
+    max-width: 500px; 
+    margin: 0 auto; 
+  }
+
+  .stats-row { justify-content: center; }
+
+  .botanical-grid { 
+    grid-template-columns: repeat(2, 1fr); 
+  }
+
+  .ritual-visual-standalone { 
+    height: 450px; 
+  }
+
+  .promise-grid { 
+    grid-template-columns: 1fr; 
+    gap: 50px; 
+  }
+
+  /* Keep images above text when stacking on mobile */
+  .story-split.reverse .story-visual { order: -1; }
+  .story-visual { order: -1; }
+}
+
+@media (max-width: 768px) {
+  .about-hero-dark { height: 75vh; }
+  .botanical-section, .promise-section { padding: 80px 0; }
+  .ritual-visual-standalone { height: 350px; border-radius: 15px; }
+}
+
+@media (max-width: 480px) {
+  .about-hero-logo { 
+    max-width: 200px; 
+  }
+
+  .display-large { font-size: 2.4rem; }
+  .hero-subtitle { font-size: 1.1rem; }
+  
+  .botanical-grid { 
+    grid-template-columns: 1fr; 
+  }
+
+  .image-frame { 
+    aspect-ratio: 1/1; /* Square ratio saves space on small phones */
+  }
+
+  .frame-border { 
+    display: none; /* Cleaner look on tiny screens */
+  }
+
+  .ritual-visual-standalone { 
+    height: 300px; 
+  }
+
+  .gold-cta-btn { 
+    width: 100%; 
+    padding: 20px 20px; 
+    justify-content: center;
+  }
 }

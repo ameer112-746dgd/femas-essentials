@@ -63,20 +63,20 @@ const Benefits = () => {
     {
       id: 1,
       icon: <FiDroplet />,
-      title: "Purely Botanical",
-      desc: "Clean, plant-derived formulas crafted without parabens, sulfates, or harsh synthetics."
+      title: "Ethically Sourced",
+      desc: "We carefully select ingredients from Nigeria, across Africa, and trusted global partners. By sourcing thoughtfully, we celebrate the richness of nature while supporting quality, authenticity, and responsible craftsmanship."
     },
     {
       id: 2,
       icon: <FiShield />,
-      title: "Sensitive-First",
-      desc: "Dermatologically conscious blends specifically balanced to soothe reactive and fragile skin."
+      title: "Thoughtful Formulation",
+      desc: "Our products are crafted with carefully chosen ingredient and are free from parabens, we focus on creating skincare that feels effective, enjoyable, and suitable for everyday use."
     },
     {
       id: 3,
       icon: <FiZap />,
-      title: "Targeted Results",
-      desc: "Potent actives clinically inspired to fade hyperpigmentation and clear stubborn acne."
+      title: "Thoughtful Packaging",
+      desc: "We are committed to reducing waste through intentional packaging choices and are actively exploring refill options and more sustainable solutions as we continue to grow. Our goal is to create products that are better for both people and the planet."
     }
   ];
 

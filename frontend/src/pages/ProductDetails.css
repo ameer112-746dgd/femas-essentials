@@ -1,25 +1,28 @@
 :root {
-  --midnight: #0a0a0a;
-  --gold: #d4af37;
-  --white: #ffffff;
-  --glass: rgba(255, 255, 255, 0.03);
-  --glass-border: rgba(255, 255, 255, 0.08);
-  --text-muted: #888;
+  /* Femas Color Palette */
+  --bg-white: #ffffff;
+  --femas-brown: #6F4E37;      /* Primary Brown */
+  --femas-brown-dark: #4A3425; /* Deep Brown */
+  --femas-nude: #FDF5F2;       /* Soft Nude/Beige */
+  --femas-nude-dark: #EAD7D1;  /* Nude border/accent */
+  --text-main: #2D2424;        /* Deep Brown-Black */
+  --text-muted: #8E8071;       /* Warm Muted Brown */
 }
 
 .pdp-dark-wrapper {
-  background-color: var(--midnight);
-  color: #fff;
+  background-color: var(--bg-white);
+  color: var(--text-main);
   min-height: 100vh;
   padding-bottom: 80px;
   position: relative;
-  overflow-x: hidden; /* Prevent horizontal scroll */
+  overflow-x: hidden;
 }
 
+/* Soft Nude Glow at the top */
 .pdp-glow {
   position: absolute;
   top: 0; left: 0; width: 100%; height: 60vw;
-  background: radial-gradient(circle at top left, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle at top left, rgba(234, 215, 209, 0.4) 0%, transparent 70%);
   z-index: 0;
 }
 
@@ -31,95 +34,129 @@
 
 .pdp-content { position: relative; z-index: 1; padding-top: 120px; }
 
-/* Breadcrumbs */
+/* Breadcrumbs - Muted Brown */
 .pdp-dark-breadcrumbs {
   display: flex; align-items: center; gap: 10px;
   font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px;
-  color: #444; margin-bottom: 40px;
+  color: var(--text-muted); margin-bottom: 40px;
 }
-.pdp-dark-breadcrumbs a { color: inherit; text-decoration: none; }
-.gold-text { color: var(--gold); }
+.pdp-dark-breadcrumbs a { color: inherit; text-decoration: none; transition: 0.3s; }
+.pdp-dark-breadcrumbs a:hover { color: var(--femas-brown); }
+.gold-text { color: var(--femas-brown); font-weight: 700; }
 
 /* Layout Grid */
 .product-layout-dark {
   display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 80px; align-items: start;
 }
 
-/* Gallery Side */
+/* Gallery Side - Luxury Arch */
 .pdp-gallery-side { position: sticky; top: 110px; width: 100%; }
 
 .pdp-arch-frame {
   position: relative; aspect-ratio: 4/5;
   border-radius: 250px 250px 20px 20px; overflow: hidden;
-  background: #111;
+  background: var(--femas-nude);
+  border: 1px solid var(--femas-nude-dark);
 }
 .pdp-arch-frame img { width: 100%; height: 100%; object-fit: cover; }
 
+/* The accent border is now a delicate nude line */
 .arch-accent-border {
   position: absolute; top: 15px; left: 15px; right: -15px; bottom: -15px;
-  border: 1px solid var(--gold); border-radius: 250px 250px 20px 20px;
+  border: 1px solid var(--femas-nude-dark); border-radius: 250px 250px 20px 20px;
   pointer-events: none;
+  z-index: -1;
 }
 
 .pdp-badge-glass {
   position: absolute; top: 30px; right: 30px;
-  background: rgba(0,0,0,0.7); backdrop-filter: blur(10px);
-  border: 1px solid var(--glass-border); color: var(--gold);
+  background: var(--bg-white); backdrop-filter: blur(10px);
+  border: 1px solid var(--femas-nude-dark); color: var(--femas-brown);
   padding: 8px 18px; font-size: 0.6rem; font-weight: 800; text-transform: uppercase;
+  border-radius: 4px;
 }
 
-/* Info Side */
-.pdp-label { color: var(--gold); text-transform: uppercase; letter-spacing: 4px; font-size: 0.7rem; font-weight: 800; display: block; margin-bottom: 15px; }
-.pdp-main-title { font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 800; margin-bottom: 15px; letter-spacing: -1.5px; line-height: 1.1; }
-.pdp-price { font-size: 1.8rem; color: var(--white); font-weight: 300; }
+/* Info Side Typography */
+.pdp-label { 
+  color: var(--femas-brown); 
+  text-transform: uppercase; 
+  letter-spacing: 4px; 
+  font-size: 0.7rem; 
+  font-weight: 800; 
+  display: block; 
+  margin-bottom: 15px; 
+}
 
-/* FIX: Description Wrapping */
+.pdp-main-title { 
+  font-size: clamp(2.2rem, 5vw, 3.8rem); 
+  font-weight: 800; 
+  margin-bottom: 15px; 
+  letter-spacing: -1.5px; 
+  line-height: 1.1; 
+  color: var(--text-main);
+}
+
+.pdp-price { 
+  font-size: 1.8rem; 
+  color: var(--femas-brown); 
+  font-weight: 300; 
+  font-family: serif;
+  font-style: italic;
+}
+
 .pdp-description { 
   color: var(--text-muted); 
   line-height: 1.8; 
   font-size: 1.05rem; 
   margin: 30px 0; 
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  word-break: break-word;
 }
 
 /* Interaction Box */
 .pdp-interaction-card { display: flex; gap: 15px; margin-bottom: 40px; }
 
 .qty-selector-dark {
-  display: flex; align-items: center; background: rgba(255,255,255,0.05);
-  border: 1px solid var(--glass-border); border-radius: 50px; padding: 5px 15px;
+  display: flex; align-items: center; background: var(--femas-nude);
+  border: 1px solid var(--femas-nude-dark); border-radius: 50px; padding: 5px 15px;
 }
-.qty-btn { background: none; border: none; color: #fff !important; cursor: pointer; padding: 10px; font-size: 1.2rem; display: flex; align-items: center; }
-.qty-number { width: 35px; text-align: center; font-weight: 800; color: #fff; }
+.qty-btn { 
+  background: none; border: none; color: var(--femas-brown) !important; 
+  cursor: pointer; padding: 10px; font-size: 1.2rem; display: flex; align-items: center; 
+}
+.qty-number { width: 35px; text-align: center; font-weight: 800; color: var(--text-main); }
 
+/* Add to Cart - Solid Brown Pill */
 .pdp-add-btn {
-  flex: 1; background: var(--gold); color: #000 !important; border: none; border-radius: 50px;
+  flex: 1; background: var(--femas-brown); color: var(--bg-white) !important; border: none; border-radius: 50px;
   font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 0.85rem;
-  cursor: pointer; transition: 0.4s;
+  cursor: pointer; transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 .btn-inner { display: flex; align-items: center; justify-content: center; gap: 10px; }
-.pdp-add-btn:hover { background: #fff; transform: translateY(-3px); }
+.pdp-add-btn:hover { 
+  background: var(--femas-brown-dark); 
+  transform: translateY(-3px); 
+  box-shadow: 0 10px 25px rgba(111, 78, 55, 0.2);
+}
 .pdp-add-btn.success { background: #27ae60; color: #fff !important; }
 
-/* Benefits */
-.pdp-benefits-row { display: flex; gap: 20px; padding-bottom: 30px; border-bottom: 1px solid var(--glass-border); }
-.benefit-item { display: flex; align-items: center; gap: 8px; font-size: 0.65rem; text-transform: uppercase; font-weight: 700; color: #666; }
-.benefit-item svg { color: var(--gold); font-size: 1.1rem; }
+/* Benefits - Brown Icons */
+.pdp-benefits-row { display: flex; gap: 20px; padding-bottom: 30px; border-bottom: 1px solid var(--femas-nude-dark); }
+.benefit-item { display: flex; align-items: center; gap: 8px; font-size: 0.65rem; text-transform: uppercase; font-weight: 700; color: var(--text-muted); }
+.benefit-item svg { color: var(--femas-brown); font-size: 1.1rem; }
 
-/* Accordions */
-.pdp-accordion { border-bottom: 1px solid var(--glass-border); }
+/* Accordions - Clean Editorial Lines */
+.pdp-accordion { border-bottom: 1px solid var(--femas-nude-dark); }
 .acc-trigger {
   width: 100%; display: flex; justify-content: space-between; align-items: center;
-  background: none; border: none; color: #fff; padding: 25px 0;
+  background: none; border: none; color: var(--text-main); padding: 25px 0;
   text-transform: uppercase; letter-spacing: 2px; font-weight: 700; font-size: 0.7rem; cursor: pointer;
+  transition: 0.3s;
 }
+.acc-trigger:hover { color: var(--femas-brown); }
 .accordion-content p { color: var(--text-muted); line-height: 1.8; font-size: 0.95rem; padding-bottom: 25px; }
 
 /* Loader */
-.pdp-dark-loader { height: 80vh; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--gold); }
-.loader-ring { width: 40px; height: 40px; border: 2px solid var(--glass); border-top-color: var(--gold); border-radius: 50%; margin-bottom: 20px; }
+.pdp-dark-loader { height: 80vh; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--femas-brown); }
+.loader-ring { width: 40px; height: 40px; border: 2px solid var(--femas-nude); border-top-color: var(--femas-brown); border-radius: 50%; margin-bottom: 20px; }
 
 /* =============================================
    MOBILE FIXES
@@ -130,7 +167,7 @@
   .pdp-gallery-side { 
     position: relative; 
     top: 0; 
-    width: 85%; /* Don't touch screen edges */
+    width: 85%; 
     margin: 0 auto; 
   }
 }
@@ -151,7 +188,5 @@
 
 @media (max-width: 480px) {
   .pdp-main-title { font-size: 1.8rem; }
-  .pdp-gallery-side { width: 80%; }
-  .arch-accent-border { right: -10px; bottom: -10px; }
-  .pdp-benefits-row { grid-template-columns: 1fr; }
+  .pdp-gallery-side { width: 90%; }
 }

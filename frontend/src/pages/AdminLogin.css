@@ -1,9 +1,12 @@
 :root {
-  --midnight: #080808;
-  --gold: #d4af37;
-  --white: #ffffff;
-  --glass: rgba(255, 255, 255, 0.03);
-  --glass-border: rgba(255, 255, 255, 0.08);
+  /* Femas Color Palette */
+  --bg-white: #ffffff;
+  --femas-brown: #6F4E37;      /* Primary Action Brown */
+  --femas-brown-dark: #4A3425; /* Hover state */
+  --femas-nude: #FDF5F2;       /* Card background */
+  --femas-nude-dark: #EAD7D1;  /* Borders */
+  --text-main: #2D2424;        /* Deep Brown-Black */
+  --text-muted: #8E8071;       /* Warm Muted Brown */
 }
 
 .admin-login-dark-wrapper {
@@ -11,15 +14,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--midnight);
-  color: var(--white);
+  background-color: var(--bg-white); /* Pure White Background */
+  color: var(--text-main);
   padding: 20px;
   position: relative;
   overflow: hidden;
   font-family: 'Inter', sans-serif;
 }
 
-/* Background Glow */
+/* Background Glow - Subtle Nude Blush */
 .login-glow {
   position: absolute;
   top: 50%;
@@ -27,24 +30,24 @@
   transform: translate(-50%, -50%);
   width: 60vw;
   height: 60vw;
-  background: radial-gradient(circle, rgba(212, 175, 55, 0.06) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(234, 215, 209, 0.4) 0%, transparent 70%);
   z-index: 0;
   pointer-events: none;
 }
 
-/* Glassmorphism Card */
+/* Luxury Login Card */
 .login-glass-card {
   width: 100%;
-  max-width: 400px;
-  background: var(--glass);
-  border: 1px solid var(--glass-border);
+  max-width: 420px;
+  background: var(--femas-nude);
+  border: 1px solid var(--femas-nude-dark);
   backdrop-filter: blur(20px);
   padding: 60px 40px;
   border-radius: 24px;
   text-align: center;
   position: relative;
   z-index: 1;
-  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 40px 100px rgba(111, 78, 55, 0.08); /* Softened shadow */
 }
 
 /* Header Section */
@@ -54,9 +57,9 @@
 
 .shield-icon {
   font-size: 2.5rem;
-  color: var(--gold);
+  color: var(--femas-brown); /* Brown Icon */
   margin-bottom: 20px;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .login-header h2 {
@@ -65,13 +68,14 @@
   text-transform: uppercase;
   font-weight: 800;
   margin: 0;
+  color: var(--text-main);
 }
 
 .italic-gold {
-  color: var(--gold);
+  color: var(--femas-brown);
   font-family: serif;
   font-style: italic;
-  font-weight: 300;
+  font-weight: 400;
   text-transform: none;
 }
 
@@ -79,7 +83,7 @@
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 3px;
-  color: #555;
+  color: var(--text-muted);
   margin-top: 10px;
   font-weight: 700;
 }
@@ -102,7 +106,7 @@
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: var(--gold);
+  color: var(--femas-brown); /* Brown Label */
   margin-bottom: 12px;
   font-weight: 800;
 }
@@ -110,26 +114,26 @@
 .login-input-group input {
   width: 100%;
   padding: 16px;
-  background: rgba(0, 0, 0, 0.4);
-  border: 1px solid var(--glass-border);
+  background: var(--bg-white); /* White input on Nude card */
+  border: 1px solid var(--femas-nude-dark);
   border-radius: 12px;
-  color: #fff;
+  color: var(--text-main);
   font-size: 1rem;
   outline: none;
-  transition: 0.3s;
+  transition: 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
   text-align: center;
   letter-spacing: 4px;
 }
 
 .login-input-group input:focus {
-  border-color: var(--gold);
-  background: rgba(0, 0, 0, 0.6);
+  border-color: var(--femas-brown);
+  box-shadow: 0 0 0 4px rgba(111, 78, 55, 0.05);
 }
 
-/* Authorize Button */
+/* Authorize Button - Rich Brown */
 .login-authorize-btn {
-  background-color: var(--gold);
-  color: var(--midnight);
+  background-color: var(--femas-brown);
+  color: var(--bg-white);
   padding: 18px;
   border-radius: 50px;
   font-weight: 800;
@@ -141,9 +145,9 @@
 }
 
 .login-authorize-btn:hover {
-  background-color: #fff;
+  background-color: var(--femas-brown-dark);
   transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+  box-shadow: 0 10px 20px rgba(111, 78, 55, 0.2);
 }
 
 /* Exit Button */
@@ -151,7 +155,7 @@
   margin-top: 40px;
   background: none;
   border: none;
-  color: #444;
+  color: var(--text-muted);
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -165,17 +169,17 @@
 }
 
 .login-exit-btn:hover {
-  color: var(--white);
+  color: var(--femas-brown);
 }
 
 /* Mobile Adjustments */
 @media (max-width: 480px) {
   .login-glass-card {
     padding: 50px 25px;
-    border-radius: 0;
-    background: transparent;
-    border: none;
-    backdrop-filter: none;
+    border-radius: 20px;
+    background: var(--femas-nude);
+    border: 1px solid var(--femas-nude-dark);
+    box-shadow: none;
   }
   
   .login-authorize-btn {

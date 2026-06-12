@@ -28,14 +28,14 @@ const BrandStory = () => {
           Our Heritage
         </motion.span>
         
-        <motion.h2 
-          className="display-large"
+        {/* LOGO REPLACES THE H2 TEXT */}
+        <motion.img 
+          src="/products/logo.png" 
+          alt="FEMAS Essentials Logo" 
+          className="story-logo"
           {...fadeUp}
           transition={{ delay: 0.3 }}
-        >
-          Effective Science. <br/>
-          <span className="italic-gold">Purely Luxurious.</span>
-        </motion.h2>
+        />
         
         <motion.div 
           className="story-text-block"
@@ -43,18 +43,13 @@ const BrandStory = () => {
           transition={{ delay: 0.5 }}
         >
           <p>
-            FEMAS Essentials was born out of a desire to create skincare that is both effective 
-            and luxurious. We understand the struggle of finding products that actually work 
-            for acne, hyperpigmentation, and sensitive skin without using harsh chemicals.
-          </p>
-          <p>
-            We believe your skincare routine should be a ritual a moment of peace in your 
-            busy day. That's why every bottle is packed with natural, plant-based ingredients 
-            designed to reveal your natural glow.
+            FEMAS was created with a simple belief: skincare should feel good, work beautifully, and become a meaningful part of your everyday routine.
+            We believe that self-care is not about perfection. It is about consistency, confidence, and taking a moment for yourself each day. From nourishing body oils to hydration-focused essentials, every FEMAS product is thoughtfully crafted to transform ordinary moments into rituals worth looking forward to.
+            Because caring for your skin should never feel like a chore.
           </p>
         </motion.div>
 
-        {/* Decorative divider - smaller and more elegant */}
+        {/* Decorative divider */}
         <motion.div 
           className="story-accent-line"
           initial={{ width: 0 }}

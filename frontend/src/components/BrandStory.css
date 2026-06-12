@@ -1,20 +1,23 @@
 :root {
-  --midnight: #0a0a0a;
-  --gold: #d4af37;
-  --white: #ffffff;
-  --text-muted: #888888;
+  /* Femas Color Palette */
+  --bg-white: #ffffff;
+  --femas-brown: #6F4E37;      /* Primary Brown */
+  --femas-nude: #FDF5F2;       /* Soft Nude */
+  --femas-nude-dark: #EAD7D1;  /* Nude border/accent */
+  --text-main: #2D2424;        /* Deep Brownish-Black */
+  --text-muted: #8E8071;       /* Warm Muted Brown */
 }
 
 .brand-story-dark {
   padding: 160px 0;
-  background-color: var(--midnight);
-  color: var(--white);
+  background-color: var(--bg-white);
+  color: var(--text-main);
   text-align: center;
   position: relative;
   overflow: hidden;
 }
 
-/* Background Glow */
+/* Background Glow - Soft Nude Glow */
 .story-glow {
   position: absolute;
   top: 50%;
@@ -22,12 +25,12 @@
   transform: translate(-50%, -50%);
   width: 50vw;
   height: 50vw;
-  background: radial-gradient(circle, rgba(212, 175, 55, 0.04) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(234, 215, 209, 0.3) 0%, transparent 70%);
   z-index: 0;
   pointer-events: none;
 }
 
-/* Elegant vertical line reaching from the previous section */
+/* Elegant vertical line - Brown to Transparent */
 .story-vertical-line {
   position: absolute;
   top: 0;
@@ -35,7 +38,7 @@
   transform: translateX(-50%);
   width: 1px;
   height: 100px;
-  background: linear-gradient(to bottom, var(--gold), transparent);
+  background: linear-gradient(to bottom, var(--femas-brown), transparent);
   z-index: 1;
 }
 
@@ -50,31 +53,28 @@
 .story-content {
   max-width: 850px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+/* Tagline - Brown */
 .story-tag-gold {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 5px;
-  color: var(--gold);
+  color: var(--femas-brown);
   font-weight: 700;
   margin-bottom: 30px;
   display: block;
 }
 
-.display-large {
-  font-size: clamp(2.5rem, 7vw, 4.2rem);
-  line-height: 1.1;
-  font-weight: 800;
-  letter-spacing: -2px;
-  margin: 0 0 50px 0;
-}
-
-.italic-gold {
-  color: var(--gold);
-  font-style: italic;
-  font-family: serif;
-  font-weight: 300;
+/* Logo Styling in Section */
+.story-logo {
+  max-width: 280px; /* Optimized size for section prominence */
+  height: auto;
+  margin-bottom: 50px;
+  display: block;
 }
 
 .story-text-block {
@@ -92,13 +92,13 @@
   font-weight: 300;
 }
 
-/* Minimalist Gold Divider */
+/* Minimalist Brown Divider */
 .story-accent-line {
-  height: 2px;
-  background-color: var(--gold);
+  height: 1px;
+  width: 80px;
+  background-color: var(--femas-brown);
   margin: 0 auto;
   position: relative;
-  box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
 }
 
 /* --- MOBILE RESPONSIVENESS --- */
@@ -107,8 +107,8 @@
     padding: 100px 0;
   }
   
-  .display-large {
-    font-size: 2.4rem;
+  .story-logo {
+    max-width: 200px; /* Smaller logo for mobile */
     margin-bottom: 35px;
   }
 

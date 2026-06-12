@@ -11,7 +11,7 @@ const Navbar = () => {
   const { cartCount } = useContext(CartContext);
   const location = useLocation();
 
-  // Scroll logic to change navbar appearance
+  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
@@ -20,7 +20,7 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close menu when navigating
+  // Close mobile menu on navigation
   useEffect(() => {
     setIsOpen(false);
   }, [location]);
@@ -33,20 +33,22 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={`navbar-dark ${scrolled ? 'scrolled' : ''}`}>
+    <nav className={`navbar-femas ${scrolled ? 'scrolled' : ''}`}>
       <div className="container navbar-content">
-        {/* LOGO */}
-        <Link to="/" className="logo-dark">
-          <motion.div
+        
+        {/* LOGO SECTION */}
+        <Link to="/" className="logo-container">
+          <motion.img
+            src="/products/logo.png" // Change this to your actual logo path
+            alt="FEMAS Essentials Logo"
+            className="navbar-logo-img"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            FEMAS <span className="logo-italic">Essentials</span>
-          </motion.div>
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          />
         </Link>
 
-        {/* DESKTOP LINKS */}
+        {/* DESKTOP NAVIGATION */}
         <div className="nav-links-desktop">
           {navLinks.map((link, i) => (
             <Link 
@@ -68,9 +70,9 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* ICONS */}
+        {/* ICON GROUP */}
         <div className="nav-icons-group">
-          <Link to="/cart" className="cart-icon-dark">
+          <Link to="/cart" className="cart-icon-btn">
             <FiShoppingBag />
             <AnimatePresence>
               {cartCount > 0 && (
@@ -79,7 +81,7 @@ const Navbar = () => {
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   exit={{ scale: 0 }}
-                  className="cart-badge-gold"
+                  className="cart-badge-femas"
                 >
                   {cartCount}
                 </motion.span>
@@ -103,15 +105,15 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* MOBILE MENU OVERLAY */}
+      {/* MOBILE OVERLAY MENU */}
       <AnimatePresence>
         {isOpen && (
           <motion.div 
             className="mobile-menu-overlay"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: '100vh' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className="mobile-links">
               {navLinks.map((link, i) => (
@@ -119,9 +121,11 @@ const Navbar = () => {
                   key={link.name}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 + i * 0.1 }}
+                  transition={{ delay: 0.1 + i * 0.1 }}
                 >
-                  <Link to={link.path}>{link.name}</Link>
+                  <Link to={link.path} className={location.pathname === link.path ? 'mobile-active' : ''}>
+                    {link.name}
+                  </Link>
                 </motion.div>
               ))}
             </div>

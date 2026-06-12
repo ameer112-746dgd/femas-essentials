@@ -1,216 +1,203 @@
+/* Hero.css - Full Femas Editorial Theme */
+
 :root {
-  --midnight: #0a0a0a;
-  --gold: #d4af37;
-  --white: #ffffff;
-  --glass: rgba(255, 255, 255, 0.03);
-  --glass-border: rgba(255, 255, 255, 0.1);
+  /* Femas Color Palette */
+  --bg-white: #ffffff;
+  --femas-brown: #6F4E37;      /* Primary Elegant Brown */
+  --femas-brown-dark: #4A3425; /* Deep Contrast Brown */
+  --femas-nude: #FDF5F2;       /* Soft Nude/Beige */
+  --femas-nude-dark: #EAD7D1;  /* Nude border/accent */
+  --text-main: #2D2424;        /* Deep Brown-Black */
+  --text-muted: #8E8071;       /* Warm Muted Brown */
 }
 
-.hero-dark {
-  min-height: 95vh;
-  background-color: var(--midnight);
-  color: var(--white);
-  display: flex;
-  align-items: center;
+/* Main Wrapper */
+.hero-femas-wrapper {
+  background-color: var(--bg-white);
+  width: 100%;
+  overflow: hidden;
+}
+
+/* 1. TOP IMAGE BANNER 
+   - Set to 90vh for high-impact cinematic feel
+   - No text is placed inside this container
+*/
+.hero-image-banner {
+  width: 100%;
+  height: 90vh; 
   position: relative;
   overflow: hidden;
-  padding: 80px 0;
+  background-color: var(--femas-nude); /* Fallback while image loads */
 }
 
-/* 1. Background Glows */
-.hero-blur-bg {
+.hero-main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image fills the area without stretching */
+  display: block;
+}
+
+/* Subtle overlay to give the image a warm, premium tint */
+.hero-visual-overlay {
   position: absolute;
-  top: -10%;
-  left: -10%;
-  width: 60vw;
-  height: 60vw;
-  background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
-  z-index: 0;
+  inset: 0;
+  background: rgba(111, 78, 55, 0.02); 
   pointer-events: none;
 }
 
-.hero-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
+/* 2. BOTTOM TEXT CONTAINER 
+   - Content appears on white background below the image
+*/
+.hero-text-container {
+  padding: 100px 0 140px;
+  text-align: center;
+  background-color: var(--bg-white);
   position: relative;
-  z-index: 2;
+  z-index: 10;
 }
 
-/* 2. Text Content */
+.hero-text-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Tiny eyebrow text */
 .hero-tag {
-  display: inline-block;
+  display: block;
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 4px;
-  color: var(--gold);
+  letter-spacing: 6px; 
+  color: var(--femas-brown);
   margin-bottom: 25px;
 }
 
-.hero-text-content h1 {
-  font-size: clamp(3rem, 7vw, 5rem);
-  line-height: 1;
+/* Bold Editorial Headline */
+.hero-bg-headline {
+  font-size: clamp(2.5rem, 8vw, 4.8rem);
+  line-height: 1.05;
   font-weight: 800;
-  margin-bottom: 30px;
   letter-spacing: -3px;
+  margin-bottom: 35px;
+  color: var(--text-main);
 }
 
-.italic-gold {
-  color: var(--gold);
+/* Italicized serif accent */
+.italic-brown {
+  color: var(--femas-brown);
   font-style: italic;
   font-family: serif;
-  font-weight: 300;
+  font-weight: 400;
 }
 
-.hero-text-content p {
-  font-size: 1.2rem;
-  color: #888;
-  line-height: 1.7;
-  margin-bottom: 45px;
-  max-width: 500px;
+/* Subtitle Paragraph */
+.hero-bg-sub {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin: 0 auto 60px;
+  max-width: 650px;
 }
 
-/* 3. Buttons */
+/* 3. BUTTON GROUP */
 .hero-cta-group {
   display: flex;
-  gap: 20px;
+  justify-content: center;
+  gap: 24px;
 }
 
-.hero-btn-gold {
-  background: var(--gold);
-  color: var(--midnight);
-  padding: 18px 35px;
-  border-radius: 50px;
+/* Primary Brown Button */
+.hero-btn-brown {
+  background: var(--femas-brown);
+  color: var(--bg-white);
+  padding: 22px 45px;
+  border-radius: 60px;
   text-decoration: none;
-  font-weight: 800;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   font-size: 0.85rem;
   display: flex;
   align-items: center;
   gap: 12px;
-  transition: 0.3s;
-  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+  transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 12px 35px rgba(111, 78, 55, 0.15);
 }
 
-.hero-btn-gold:hover {
-  background: #fff;
+.hero-btn-brown:hover {
+  background: var(--femas-brown-dark);
   transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(111, 78, 55, 0.25);
 }
 
-.hero-btn-outline {
-  background: transparent;
-  color: #fff;
-  padding: 18px 35px;
-  border-radius: 50px;
+/* Secondary Nude Button */
+.hero-btn-nude {
+  background: var(--femas-nude);
+  color: var(--femas-brown);
+  padding: 22px 45px;
+  border-radius: 60px;
   text-decoration: none;
   font-weight: 700;
-  border: 1px solid var(--glass-border);
+  border: 1px solid var(--femas-nude-dark);
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   font-size: 0.85rem;
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
-.hero-btn-outline:hover {
-  background: var(--glass);
-  border-color: var(--gold);
+.hero-btn-nude:hover {
+  background: var(--bg-white);
+  border-color: var(--femas-brown);
 }
 
-/* 4. Visual Arch Styling */
-.hero-visual-frame {
-  display: flex;
-  justify-content: center;
-  position: relative;
-}
-
-.arch-wrapper {
-  width: 100%;
-  max-width: 440px;
-  aspect-ratio: 4 / 5.5;
-  position: relative;
-  border-radius: 250px 250px 20px 20px;
-  z-index: 2;
-}
-
-.arch-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 250px 250px 20px 20px;
-  position: relative;
-  z-index: 2;
-  filter: saturate(1.1);
-}
-
-.arch-border {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  right: -15px;
-  bottom: -15px;
-  border: 1px solid var(--gold);
-  border-radius: 250px 250px 20px 20px;
-  z-index: 1;
-}
-
-.arch-glow {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 120%;
-  height: 120%;
-  background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
-  z-index: 0;
-}
-
-.floating-badge {
-  position: absolute;
-  bottom: 18px;
-  right: 18px;
-  background: var(--glass);
-  backdrop-filter: blur(10px);
-  border: 1px solid var(--glass-border);
-  padding: 10px 16px;
-  border-radius: 40px;
-  z-index: 3;
-  transform: translateZ(0);
-}
-
-.floating-badge span {
-  font-size: 0.75rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: var(--gold);
-}
-
-/* 5. Mobile Responsiveness */
+/* 4. MOBILE RESPONSIVENESS */
 @media (max-width: 992px) {
-  .hero-container {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 60px;
+  .hero-image-banner {
+    height: 70vh; /* Slightly shorter on tablets */
   }
-  
-  .hero-text-content { order: 1; }
-  .hero-visual-frame { order: 2; }
-  
-  .hero-text-content p { margin: 0 auto 40px; }
-  .hero-cta-group { justify-content: center; }
-  
-  .arch-wrapper { max-width: 340px; }
-  .floating-badge { right: 0; }
 }
 
 @media (max-width: 768px) {
-  .hero-dark { padding: 100px 0 60px; }
-  .hero-text-content h1 { font-size: 2.8rem; }
-  .hero-cta-group { flex-direction: column; width: 100%; }
-  .hero-btn-gold, .hero-btn-outline { width: 100%; justify-content: center; }
-  .arch-wrapper { max-width: 300px; }
-  .arch-border { right: -10px; bottom: -10px; }
+  .hero-image-banner {
+    height: 60vh; /* Optimized for mobile viewing */
+  }
+
+  .hero-text-container {
+    padding: 70px 24px 100px;
+  }
+
+  .hero-bg-headline {
+    font-size: 2.4rem;
+    letter-spacing: -1px;
+    line-height: 1.1;
+  }
+
+  .hero-cta-group {
+    flex-direction: column; /* Stack buttons vertically on mobile */
+    align-items: center;
+    gap: 15px;
+  }
+
+  .hero-btn-brown, 
+  .hero-btn-nude {
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+    padding: 18px 30px;
+  }
+
+  .hero-bg-sub {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-image-banner {
+    height: 50vh; /* Compact height for small phones */
+  }
+  
+  .hero-bg-headline {
+    font-size: 2rem;
+  }
 }

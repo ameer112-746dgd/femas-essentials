@@ -1,19 +1,23 @@
 :root {
-  --midnight: #0a0a0a;
-  --gold: #d4af37;
-  --glass: rgba(255, 255, 255, 0.03);
-  --glass-border: rgba(255, 255, 255, 0.08);
+  /* Femas Color Palette */
+  --bg-white: #ffffff;
+  --femas-brown: #6F4E37;      /* Primary Brown */
+  --femas-nude: #FDF5F2;       /* Soft Nude background */
+  --femas-nude-dark: #EAD7D1;  /* Nude for borders */
+  --text-main: #2D2424;        /* Deep Brownish-Black */
+  --text-muted: #8E8071;       /* Warm Muted Brown */
 }
 
-.testimonials-dark-section {
+.testimonials-femas-section {
   padding: 140px 0;
-  background-color: var(--midnight);
+  background-color: var(--bg-white);
   position: relative;
   overflow: hidden;
-  color: #fff;
-  border-top: 1px solid var(--glass-border);
+  color: var(--text-main);
+  border-top: 1px solid var(--femas-nude-dark);
 }
 
+/* Background Glow */
 .testi-glow {
   position: absolute;
   bottom: -10%;
@@ -21,7 +25,7 @@
   transform: translateX(-50%);
   width: 70vw;
   height: 400px;
-  background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(234, 215, 209, 0.4) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -35,73 +39,72 @@
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 4px;
-  color: var(--gold);
+  color: var(--femas-brown);
   font-weight: 700;
   margin-bottom: 15px;
 }
 
 .testi-header h2 {
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(2rem, 5vw, 3.2rem);
   font-weight: 800;
   letter-spacing: -1px;
+  color: var(--text-main);
 }
 
-.italic-gold {
-  color: var(--gold);
+.italic-brown {
+  color: var(--femas-brown);
   font-style: italic;
   font-family: serif;
+  font-weight: 400;
 }
 
 .header-line {
   width: 50px;
-  height: 2px;
-  background: var(--gold);
+  height: 1.5px;
+  background: var(--femas-brown);
   margin: 25px auto 0;
 }
 
-/* Grid & Cards */
+/* Grid Layout */
 .testi-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
 }
 
-.testi-glass-card {
-  background: var(--glass);
-  border: 1px solid var(--glass-border);
-  backdrop-filter: blur(10px);
+/* Femas Nude Card */
+.testi-nude-card {
+  background: var(--femas-nude);
+  border: 1px solid var(--femas-nude-dark);
   padding: 50px 40px;
   border-radius: 24px;
   display: flex;
   flex-direction: column;
-  transition: 0.4s;
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: 0 10px 30px rgba(111, 78, 55, 0.03);
 }
 
-.testi-glass-card:hover {
-  border-color: rgba(212, 175, 55, 0.3);
+.testi-nude-card:hover {
+  border-color: var(--femas-brown);
   transform: translateY(-10px);
-  background: rgba(255,255,255,0.05);
+  background: var(--bg-white);
+  box-shadow: 0 20px 40px rgba(111, 78, 55, 0.08);
 }
 
-.stars-row {
-  display: flex;
-  gap: 5px;
+.stars-display {
+  color: var(--femas-brown);
+  font-size: 1.2rem;
+  letter-spacing: 2px;
   margin-bottom: 25px;
 }
 
-.star-icon {
-  color: var(--gold);
-  fill: var(--gold);
-  font-size: 0.9rem;
-}
-
 .rev-text {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   line-height: 1.8;
-  color: #bbb;
+  color: var(--text-muted);
   margin-bottom: 35px;
   font-style: italic;
-  font-weight: 300;
+  font-family: serif; /* Editorial serif look for the quote */
 }
 
 .rev-author {
@@ -112,22 +115,31 @@
 }
 
 .author-line {
-  width: 30px;
+  width: 25px;
   height: 1px;
-  background: var(--gold);
+  background: var(--femas-brown);
 }
 
 .rev-author span {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: 700;
-  color: #fff;
+  color: var(--text-main);
 }
 
-/* --- MOBILE --- */
+/* --- MOBILE RESPONSIVENESS --- */
 @media (max-width: 1024px) {
-  .testi-grid { grid-template-columns: 1fr; gap: 20px; }
-  .testi-glass-card { padding: 40px 30px; }
-  .testimonials-dark-section { padding: 100px 0; }
+  .testi-grid { 
+    grid-template-columns: 1fr; 
+    gap: 25px; 
+  }
+  
+  .testi-nude-card { 
+    padding: 40px 30px; 
+  }
+
+  .testimonials-femas-section { 
+    padding: 80px 0; 
+  }
 }

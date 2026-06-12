@@ -67,14 +67,14 @@ const Shop = () => {
             animate={{ opacity: 1, y: 0 }}
             className="shop-label"
           >
-            Organic Excellence
+            Discover the products our customers keep coming back for
           </motion.span>
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="display-text"
           >
-            The <span className="italic-gold">Collection</span>
+            CURATED <span className="italic-gold">FOR YOUR. SKIN</span>
           </motion.h1>
         </div>
       </header>

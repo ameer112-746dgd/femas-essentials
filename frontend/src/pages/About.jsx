@@ -155,10 +155,10 @@ const About = () => {
   };
 
   const botanicals = [
-    { name: "Organic Shea", benefit: "Deep Hydration" },
-    { name: "Essential Oils", benefit: "Skin Repair" },
-    { name: "Vitamin E", benefit: "Glow Protection" },
-    { name: "Pure Botanicals", benefit: "Anti-Inflammatory" }
+    { name: "NOURISHING BUTTERS", benefit: "rich botanical butters  selected to soften and condition skin" },
+    { name: "BOTANICAL OILS", benefit: "plant driven oils chosen for their, healing, nourishing and moisturizing properties" },
+    { name: "SKIN LOVING ACTIVES", benefit: "thoughtfully chosen ingredients that help hydrate , replenish and support skin barrier" },
+    { name: "COSMETIC SCIENCE", benefit: "modern formulation principles that combine performance , stability and an enjoyable user experience" }
   ];
 
   return (
@@ -210,11 +210,6 @@ const About = () => {
               <p>
                 We envision FEMAS as a brand that inspires confidence through care, offering products that nourish the skin, elevate daily rituals, and make self-care feel effortless. Our goal is simple: to create products people genuinely enjoy using every day.
               </p>
-            </div>
-            <div className="stats-row">
-              <div className="stat-item"><strong>100%</strong><span>Natural</span></div>
-              <div className="stat-item"><strong>0%</strong><span>Parabens</span></div>
-              <div className="stat-item"><strong>24H</strong><span>Hydration</span></div>
             </div>
           </motion.div>
         </section>
@@ -281,9 +276,9 @@ const About = () => {
           </motion.div>
           <div className="promise-grid">
             {[
-              { title: "Ethically Sourced", desc: "We carefully select ingredients from Nigeria and across Africa." },
-              { title: "Cruelty-Free", desc: "FEMAS products are never tested on animals and are created with care." },
-              { title: "Thoughtful Packaging", desc: "We are committed to reducing waste through intentional choices." }
+              { title: "Ethically Sourced", desc: "We carefully select ingredients from Nigeria, across Africa, and trusted global partners. By sourcing thoughtfully, we celebrate the richness of nature while supporting quality, authenticity, and responsible craftsmanship." },
+              { title: "Thoughtful Formulation", desc: "Our products are crafted with carefully chosen ingredient and are free from parabens, we focus on creating skincare that feels effective, enjoyable, and suitable for everyday use." },
+              { title: "Thoughtful Packaging", desc: "We are committed to reducing waste through intentional packaging choices and are actively exploring refill options and more sustainable solutions as we continue to grow. Our goal is to create products that are better for both people and the planet." }
             ].map((p, i) => (
               <motion.div key={i} className="promise-item" {...fadeUp} transition={{delay: i * 0.1}}>
                 <FiCheckCircle className="p-icon" />

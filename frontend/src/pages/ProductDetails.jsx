@@ -1,82 +1,3 @@
-// import React, { useState, useEffect, useContext } from 'react';
-// import { useParams, Link } from 'react-router-dom';
-// import { motion, AnimatePresence } from 'framer-motion';
-// import { FiMinus, FiPlus, FiShoppingBag, FiChevronRight, FiShield, FiTruck, FiRefreshCw } from 'react-icons/fi';
-// import { CartContext } from '../context/CartContext';
-// import './ProductDetails.css';
-// import API from '../api'; 
-
-// const ProductDetails = () => {
-//   const { id } = useParams();
-//   const { addToCart } = useContext(CartContext);
-//   const [product, setProduct] = useState(null);
-//   const [loading, setLoading] = useState(true);
-//   const [qty, setQty] = useState(1);
-//   const [buttonStatus, setButtonStatus] = useState("idle");
-
-//   useEffect(() => {
-//     const fetchProduct = async () => {
-//       try {
-//         const { data } = await API.get(`/products/${id}`);
-//         setProduct(data);
-//       } catch (error) { console.error(error); }
-//       finally { setLoading(false); }
-//     };
-//     fetchProduct();
-//   }, [id]);
-
-//   const arrayBufferToBase64 = (buffer) => {
-//     let binary = '';
-//     const bytes = new Uint8Array(buffer);
-//     for (let i = 0; i < bytes.byteLength; i++) binary += String.fromCharCode(bytes[i]);
-//     return window.btoa(binary);
-//   };
-
-//   const handleAddToCart = () => {
-//     if (product) {
-//       setButtonStatus("adding");
-//       setTimeout(() => {
-//         addToCart(product, qty);
-//         setButtonStatus("success");
-//         setTimeout(() => setButtonStatus("idle"), 2000);
-//       }, 600);
-//     }
-//   };
-
-//   if (loading) return <div className="pdp-dark-loader"><div className="loader-ring" /></div>;
-
-//   return (
-//     <div className="pdp-dark-wrapper">
-//       <div className="container pdp-content">
-//         <div className="product-layout-dark">
-//           <div className="pdp-gallery-side">
-//             <div className="pdp-arch-frame">
-//               {product?.image?.data && <img src={`data:${product.image.contentType};base64,${arrayBufferToBase64(product.image.data.data)}`} alt={product.name} />}
-//               <div className="arch-accent-border"></div>
-//             </div>
-//           </div>
-//           <div className="pdp-info-side">
-//             <h1 className="pdp-main-title">{product?.name}</h1>
-//             <span className="pdp-price">₦{product?.price.toLocaleString()}</span>
-//             <p className="pdp-description">{product?.description}</p>
-//             <div className="pdp-interaction-card">
-//               <div className="qty-selector-dark">
-//                 <button onClick={() => setQty(qty > 1 ? qty - 1 : 1)}><FiMinus /></button>
-//                 <span>{qty}</span>
-//                 <button onClick={() => setQty(qty + 1)}><FiPlus /></button>
-//               </div>
-//               <button className={`pdp-add-btn ${buttonStatus}`} onClick={handleAddToCart}>
-//                 {buttonStatus === "idle" ? "Add to Ritual" : "Added"}
-//               </button>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-// export default ProductDetails;
-
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -129,7 +50,7 @@ const ProductDetails = () => {
   if (loading) return (
     <div className="pdp-femas-loader">
       <div className="loader-ring" />
-      <p>Preparing Ritual...</p>
+      <p>Loading...</p>
     </div>
   );
 

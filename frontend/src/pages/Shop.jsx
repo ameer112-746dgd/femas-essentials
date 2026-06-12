@@ -113,7 +113,7 @@ const Shop = () => {
   const categories = ['All', 'Body oils', 'Body butters', 'Serum', 'Soap', 'Creams', 'Cleansers'];
   const filteredProducts = filter === 'All' ? products : products.filter(p => p.category === filter);
 
-  if (loading) return <div className="shop-femas-loader"><div className="loader-circle" /><p>Curating Ritual...</p></div>;
+  if (loading) return <div className="shop-femas-loader"><div className="loader-circle" /><p>Loading...</p></div>;
 
   return (
     <div className="shop-femas-wrapper">

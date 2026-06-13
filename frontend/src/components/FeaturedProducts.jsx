@@ -33,7 +33,7 @@ const FeaturedProducts = () => {
   if (loading) return (
     <div className="featured-dark-loader">
       <div className="spinner"></div>
-      <p>Curating Rituals...</p>
+      <p>Loading Featured Collections...</p>
     </div>
   );
 

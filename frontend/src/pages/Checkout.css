@@ -1,177 +1,392 @@
+/* ==========================================================================
+   CHECKOUT STYLES - FEMAS ESSENTIALS
+   ========================================================================== */
+
 :root {
   /* Femas Color Palette */
   --bg-white: #ffffff;
-  --femas-brown: #6F4E37;      /* Primary Brown */
-  --femas-brown-dark: #4A3425; /* Deep Contrast Brown */
-  --femas-nude: #FDF5F2;       /* Soft Nude/Beige */
-  --femas-nude-dark: #EAD7D1;  /* Nude borders */
-  --text-main: #2D2424;        /* Deep Brownish-Black */
-  --text-muted: #8E8071;       /* Warm Muted Brown */
+  --femas-brown: #6F4E37;      /* Primary Action Brown */
+  --femas-brown-dark: #4A3425; /* Hover state */
+  --femas-nude: #FDF5F2;       /* Card background */
+  --femas-nude-dark: #EAD7D1;  /* Borders & lines */
+  --text-main: #2D2424;        /* Deep Brown-Black */
+  --text-muted: #8E8071;       /* Muted Brown */
 }
 
-.checkout-dark-wrapper {
+/* 1. Page Wrapper */
+.checkout-femas-wrapper {
   background-color: var(--bg-white);
   color: var(--text-main);
   min-height: 100vh;
   padding: 120px 0 80px;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
-.checkout-dark-wrapper.empty { text-align: center; display: flex; align-items: center; justify-content: center; }
+.checkout-femas-wrapper.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
 
-/* Background Glows - Softened for Light Mode */
-.checkout-glow {
+/* Background Glow Effect */
+.checkout-bg-glow {
   position: absolute;
-  width: 50vw;
-  height: 50vw;
-  border-radius: 50%;
-  filter: blur(140px);
-  opacity: 0.3;
-  z-index: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60vh;
+  background: radial-gradient(circle at top right, rgba(234, 215, 209, 0.4) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
 }
-.dot-1 { top: -10%; left: -10%; background: var(--femas-nude-dark); }
-.dot-2 { bottom: -10%; right: -10%; background: var(--femas-nude); }
 
-.checkout-content { position: relative; z-index: 2; }
-
-/* Back Link - Muted Brown */
-.back-link {
-  display: flex; align-items: center; gap: 8px; color: var(--text-muted);
-  text-decoration: none; font-size: 0.75rem; text-transform: uppercase;
-  letter-spacing: 2px; margin-bottom: 40px; transition: 0.3s;
+.pdp-back-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 2;
+  transition: 0.3s;
 }
-.back-link:hover { color: var(--femas-brown); transform: translateX(-5px); }
 
-.checkout-header { margin-bottom: 60px; }
-.checkout-header h1 { font-size: clamp(2.5rem, 6vw, 3.5rem); letter-spacing: -2px; margin-bottom: 10px; color: var(--text-main); }
-.italic-gold { color: var(--femas-brown); font-style: italic; font-family: serif; font-weight: 400; }
-.checkout-header p { color: var(--text-muted); font-size: 1.1rem; }
+.pdp-back-link:hover {
+  color: var(--femas-brown);
+  transform: translateX(-5px);
+}
 
-/* Grid Layout */
-.checkout-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: start; }
+/* 2. Header Section */
+.pdp-checkout-header {
+  margin-bottom: 60px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
 
-/* Light Nude Glass Card */
+.pdp-checkout-header h1 {
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+}
+
+.italic-brown {
+  color: var(--femas-brown);
+  font-style: italic;
+  font-family: serif;
+  font-weight: 400;
+}
+
+/* 3. Grid Layout */
+.checkout-grid-main {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+  align-items: start;
+  position: relative;
+  z-index: 2;
+}
+
+/* 4. Individual Glass Cards */
 .checkout-glass-card {
   background: var(--femas-nude);
   border: 1px solid var(--femas-nude-dark);
-  backdrop-filter: blur(15px);
-  padding: 50px 40px; border-radius: 24px;
-  box-shadow: 0 15px 40px rgba(111, 78, 55, 0.03);
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 15px 40px rgba(111, 78, 55, 0.05);
 }
 
-.checkout-glass-card h3 {
-  display: flex; align-items: center; gap: 12px;
-  font-size: 1.2rem; margin-bottom: 40px; color: var(--femas-brown);
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 35px;
+  color: var(--femas-brown);
+  font-size: 1.2rem;
   font-weight: 700;
 }
 
-/* Luxury Form Inputs */
-.luxury-form { display: flex; flex-direction: column; gap: 25px; }
-.input-row.split { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-
-.input-group label {
-  display: flex; align-items: center; gap: 8px;
-  font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px;
-  color: var(--femas-brown); margin-bottom: 10px; font-weight: 800;
+/* 5. Luxury Form Elements */
+.femas-checkout-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.input-group input, .input-group select {
-  width: 100%; 
-  background: var(--bg-white); 
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group-pdp {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group-pdp label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.form-group-pdp input, 
+.region-select {
+  width: 100%;
+  background: #fff;
   border: 1px solid var(--femas-nude-dark);
-  padding: 15px; 
-  border-radius: 10px; 
-  color: var(--text-main); 
-  outline: none; 
-  transition: 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  outline: none;
+  color: var(--text-main);
+  transition: 0.3s ease;
 }
 
-.input-group input:focus, .input-group select:focus { 
-  border-color: var(--femas-brown); 
-  background: var(--bg-white); 
+.form-group-pdp input:focus, 
+.region-select:focus {
+  border-color: var(--femas-brown);
   box-shadow: 0 0 0 4px rgba(111, 78, 55, 0.05);
 }
 
-/* Select Styling Override */
-select option { background: var(--bg-white); color: var(--text-main); }
-
-/* Summary List Styling */
-.summary-scroll {
-  max-height: 300px; overflow-y: auto;
-  padding-right: 15px; margin-bottom: 30px;
-}
-.summary-scroll::-webkit-scrollbar { width: 3px; }
-.summary-scroll::-webkit-scrollbar-thumb { background: var(--femas-nude-dark); border-radius: 10px; }
-
-.summary-item {
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 15px 0; border-bottom: 1px solid var(--femas-nude-dark);
-}
-.item-name { font-weight: 600; color: var(--text-main); margin-bottom: 5px; }
-.item-qty { font-size: 0.75rem; color: var(--text-muted); }
-.item-price { font-weight: 700; color: var(--femas-brown); }
-
-.break-line { display: flex; justify-content: space-between; margin-bottom: 15px; color: var(--text-muted); }
-
-.total-line {
-  display: flex; justify-content: space-between; align-items: flex-end;
-  margin-top: 25px; padding-top: 25px; border-top: 1px solid var(--femas-nude-dark);
-}
-.final-amount { font-size: 2rem; font-weight: 800; letter-spacing: -1px; color: var(--text-main); }
-
-/* WhatsApp Checkout - Kept green but styled for Luxury */
-.whatsapp-checkout-btn {
-  width: 100%; 
-  background: #25D366; 
-  color: #fff; 
-  border: none;
-  padding: 22px; 
-  border-radius: 50px; 
-  font-weight: 800; 
-  font-size: 0.9rem;
-  text-transform: uppercase; 
-  letter-spacing: 1px; 
-  cursor: pointer;
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
-  gap: 12px;
-  margin-top: 40px; 
-  transition: 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-.whatsapp-checkout-btn:hover { 
-  background: #1eb954; 
-  transform: translateY(-5px); 
-  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.2); 
+/* 6. Order Summary Details */
+.mini-cart-list {
+  border-bottom: 1px solid var(--femas-nude-dark);
+  padding-bottom: 20px;
+  margin-bottom: 25px;
 }
 
-.secure-tag { text-align: center; margin-top: 20px; font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+.mini-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+}
 
-/* General Femas Brown Button */
-.gold-btn {
-  display: inline-block; 
-  background: var(--femas-brown); 
-  color: #fff;
-  padding: 18px 40px; 
-  border-radius: 50px; 
-  text-decoration: none; 
-  font-weight: 800; 
+.mini-item small {
+  color: var(--text-muted);
+  margin-left: 5px;
+  font-weight: 400;
+}
+
+.checkout-totals .total-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.final-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--femas-nude-dark);
   margin-top: 20px;
+  padding-top: 20px;
+  font-weight: 800;
+  font-size: 1.6rem;
+  color: var(--femas-brown);
+}
+
+/* 7. Inline Payment/Bank Box (Pre-Order) */
+.bank-info-box-inline {
+  background: #fff;
+  border: 1px dashed var(--femas-brown);
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.bank-info-box-inline h4 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  letter-spacing: 1px;
+}
+
+.bank-info-box-inline p {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--femas-brown);
+  line-height: 1.5;
+}
+
+.confirm-checkout-btn {
+  width: 100%;
+  background: var(--femas-brown);
+  color: #fff;
+  border: none;
+  padding: 22px;
+  border-radius: 50px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  margin-top: 30px;
   transition: 0.3s;
 }
-.gold-btn:hover { background: var(--femas-brown-dark); }
 
-/* Mobile Optimization */
+.confirm-checkout-btn:hover:not(:disabled) {
+  background: var(--femas-brown-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(111, 78, 55, 0.2);
+}
+
+.confirm-checkout-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* 8. Success State Styling */
+.checkout-success-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background: var(--bg-white);
+}
+
+.success-card {
+  background: var(--femas-nude);
+  padding: 60px 40px;
+  border-radius: 32px;
+  max-width: 550px;
+  border: 1px solid var(--femas-nude-dark);
+  box-shadow: 0 30px 60px rgba(111, 78, 55, 0.1);
+  text-align: center;
+}
+
+.success-icon {
+  font-size: 4.5rem;
+  color: #27ae60;
+  margin-bottom: 25px;
+}
+
+.payment-instruction-box {
+  background: #fff;
+  padding: 35px;
+  border-radius: 20px;
+  margin: 30px 0;
+  border: 1px solid var(--femas-nude-dark);
+  text-align: center;
+}
+
+.payment-instruction-box small {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.pay-amount {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--femas-brown);
+  margin: 15px 0;
+  letter-spacing: -1px;
+}
+
+.bank-details-grid {
+  text-align: left;
+  margin: 25px 0;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 20px;
+}
+
+.bank-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.bank-row span {
+  color: var(--text-muted);
+}
+
+.payment-note {
+  font-size: 0.85rem;
+  color: #d35400; /* Muted orange-red for importance */
+  font-weight: 600;
+  margin-top: 20px;
+  background: #fff8f0;
+  padding: 12px;
+  border-radius: 8px;
+  line-height: 1.5;
+}
+
+.femas-btn-solid {
+  display: inline-block;
+  background: var(--femas-brown);
+  color: #fff;
+  padding: 18px 45px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+.femas-btn-solid:hover {
+  background: var(--femas-brown-dark);
+  transform: scale(1.05);
+}
+
+/* 9. Mobile Responsiveness */
 @media (max-width: 1024px) {
-  .checkout-grid { grid-template-columns: 1fr; }
-  .checkout-header { text-align: center; }
-  .back-link { justify-content: center; }
+  .checkout-grid-main {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 768px) {
-  .checkout-glass-card { padding: 35px 20px; }
-  .input-row.split { grid-template-columns: 1fr; }
-  .final-amount { font-size: 1.5rem; }
-  .whatsapp-checkout-btn { padding: 18px; font-size: 0.8rem; border-radius: 12px; }
+  .checkout-femas-wrapper {
+    padding-top: 100px;
+  }
+
+  .checkout-glass-card {
+    padding: 30px 20px;
+  }
+
+  .form-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .final-row {
+    font-size: 1.3rem;
+  }
+
+  .pay-amount {
+    font-size: 2rem;
+  }
+
+  .success-card {
+    padding: 40px 20px;
+  }
+  
+  .bank-row {
+    flex-direction: column;
+    gap: 2px;
+    margin-bottom: 15px;
+  }
 }

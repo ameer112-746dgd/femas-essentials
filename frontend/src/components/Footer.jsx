@@ -35,8 +35,11 @@ const Footer = () => {
             <nav className="footer-links">
               <Link to="/shop">All products</Link>
               <Link to="/shop">Body Oils</Link>
-              <Link to="/shop">Luxury Butters</Link>
-              <Link to="/shop">Treatment Serums</Link>
+              <Link to="/shop">body Butters</Link>
+              <Link to="/shop">Serum</Link>
+              <Link to="/shop">Soap</Link>
+              <Link to="/shop">Creams</Link>
+              <Link to="/shop">Cleansers</Link>
             </nav>
           </div>
 
@@ -44,6 +47,8 @@ const Footer = () => {
           <div className="footer-col">
             <h4 className="col-title">Client Care</h4>
             <nav className="footer-links">
+              <Link to="/">Home</Link>
+              <Link to="/shop">Shop</Link>
               <Link to="/contact">Contact Us</Link>
               <Link to="/about">Our Story</Link>
             </nav>

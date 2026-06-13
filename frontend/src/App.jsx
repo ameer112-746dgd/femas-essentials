@@ -96,7 +96,7 @@ const AdminDashboard = lazy(() => import('./pages/AdminDashboard'));
 const LuxuryLoader = () => (
   <div style={{ height: '100vh', background: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#6F4E37', flexDirection: 'column' }}>
     <div className="loader-circle"></div>
-    <p style={{ marginTop: '20px', letterSpacing: '3px', textTransform: 'uppercase', fontSize: '0.7rem' }}>Preparing Ritual</p>
+    <p style={{ marginTop: '20px', letterSpacing: '3px', textTransform: 'uppercase', fontSize: '0.7rem' }}>Loading.....</p>
   </div>
 );
 
